@@ -11,13 +11,13 @@
 	}
 
 	.collapsible__chevron {
-		@mixin atMedium {
+		@mixin md {
 			display: none;
 		}
 	}
 
 	.collapsible__content {
-		@mixin atMedium {
+		@mixin md {
 			max-height: 100%;
 			opacity: 1;
 		}
@@ -26,13 +26,13 @@
 	&__heading {
 		text-transform: uppercase;
 		font-weight: 600;
-		@mixin atMedium {
+		@mixin md {
 			font-size: 1.6rem;
 		}
 	}
 
 	&__sections {
-		@mixin atMedium {
+		@mixin md {
 			grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 		}
 	}
@@ -40,7 +40,7 @@
 	&__section {
 		padding: 2rem;
 		border-bottom: 1px solid #393939;
-		@mixin atMedium {
+		@mixin md {
 			border: 0;
 		}
 
@@ -53,7 +53,7 @@
 		margin-top: 5rem;
 		text-align: center;
 
-		@mixin atMedium {
+		@mixin md {
 			order: -1;
 			margin-top: 1rem;
 		}
@@ -69,7 +69,7 @@
 		color: #ffffff;
 		font-size: 2.1rem;
 		opacity: 0.3;
-		@mixin atMedium {
+		@mixin md {
 			font-size: 1.5rem;
 		}
 	}

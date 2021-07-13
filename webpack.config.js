@@ -40,19 +40,15 @@ const config = {
 			{
 				test: /\.js$/,
 				exclude: /(node_modules)/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['@babel/preset-react', '@babel/preset-env'],
-					},
-				},
+				use: ['babel-loader'],
 			},
-			// Images
+			// Webpack build in asset modules - is type not use loader
+			// For Images
 			{
 				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 				type: 'asset/resource',
 			},
-			// Fonts and SVGs
+			// For Fonts and SVGs
 			{
 				test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
 				type: 'asset/inline',
@@ -77,6 +73,7 @@ if (currentTask === 'start') {
 		},
 		contentBase: path.join(__dirname, 'src'),
 		hot: true,
+		open: true,
 		port: 3000,
 		historyApiFallback: true,
 		// Let server to be accessible externally, allow mobile test

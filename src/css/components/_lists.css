@@ -20,7 +20,7 @@
 			margin-bottom: 1rem;
 			padding-left: 0.5rem;
 
-			@mixin atLarge {
+			@mixin lg {
 				padding-left: 0;
 			}
 		}

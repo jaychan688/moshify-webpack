@@ -4,28 +4,29 @@
 	border-radius: 5px;
 
 	.btn {
-		@mixin atMedium {
+		align-self: center;
+		justify-self: center;
+
+		@mixin md {
 			margin: 0 2rem;
 			justify-self: start;
 		}
-		align-self: center;
-		justify-self: center;
 	}
 
 	.grid--1x2 {
 		/* In our callout component, if we have a grid--1x2, apply this rules  */
 		/* second column set to auto, all the extra space will allocate to first column(1fr)  */
-		@mixin atMedium {
+		@mixin md {
 			grid-template-columns: 1fr auto;
 		}
 	}
 
 	&__content {
-		@mixin atMedium {
+		text-align: center;
+
+		@mixin md {
 			text-align: left;
 		}
-
-		text-align: center;
 	}
 
 	&__heading {

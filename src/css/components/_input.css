@@ -11,7 +11,7 @@
 	color: var(--color-headings);
 	font-size: 2.2rem;
 
-	@mixin atLarge {
+	@mixin lg {
 		font-size: 1.8rem;
 	}
 }

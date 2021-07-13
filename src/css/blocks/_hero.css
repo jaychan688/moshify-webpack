@@ -1,6 +1,6 @@
 /* Hero Block */
 .block-hero {
-	@mixin atMedium {
+	@mixin md {
 		padding-top: 0;
 	}
 
@@ -16,7 +16,7 @@
 	}
 
 	&__content {
-		@mixin atMedium {
+		@mixin md {
 			align-self: center;
 			text-align: left;
 		}

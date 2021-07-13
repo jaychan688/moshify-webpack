@@ -4,7 +4,7 @@
 	font-style: italic;
 	font-size: 4rem;
 	line-height: 1.3;
-	@mixin atLarge {
+	@mixin lg {
 		font-size: 2rem;
 	}
 
@@ -13,7 +13,7 @@
 		font-weight: 500;
 		font-style: normal;
 		font-size: 3rem;
-		@mixin atLarge {
+		@mixin lg {
 			font-size: 2.4rem;
 		}
 	}
@@ -23,7 +23,7 @@
 		font-style: normal;
 		font-size: 2rem;
 		opacity: 0.5;
-		@mixin atLarge {
+		@mixin lg {
 			font-size: 1.6rem;
 		}
 	}

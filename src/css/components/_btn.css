@@ -12,9 +12,10 @@
 	font-size: 1.8rem;
 	cursor: pointer;
 
-	@mixin atLarge {
+	@mixin lg {
 		font-size: 1.5rem;
 	}
+
 	.icon {
 		margin-right: 1rem;
 		width: 2rem;

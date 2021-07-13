@@ -11,7 +11,7 @@
 		margin: 0;
 		/* set width to 100%, combine with flex-wrap can push te ul into second line */
 		width: 100%;
-		@mixin atMedium {
+		@mixin md {
 			display: flex;
 			/* Tricks from collapsible__content */
 			max-height: 100vh;
@@ -28,7 +28,7 @@
 	&__item {
 		padding: 0.5rem 2rem;
 		border-bottom: 1px solid #222222;
-		@mixin atMedium {
+		@mixin md {
 			border: 0;
 		}
 
@@ -46,7 +46,7 @@
 		opacity: 0.5;
 		cursor: pointer;
 		transition: box-shadow 0.15s;
-		@mixin atMedium {
+		@mixin md {
 			display: none;
 		}
 	}

@@ -10,7 +10,7 @@ fs-extra webpack webpack-cli webpack-dev-server
 
 ## es5
 
-@babel/core @babel/preset-env @babel/preset-react
+@babel/core @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties
 
 ## loader
 
@@ -22,4 +22,4 @@ mini-css-extract-plugin clean-webpack-plugin html-webpack-plugin
 
 ## postcss
 
-cssnano autoprefixer postcss postcss-extend postcss-hexrgba postcss-import postcss-loader postcss-mixins postcss-nested postcss-simple-vars postcss-preset-env
+cssnano autoprefixer postcss postcss-hexrgba postcss-import postcss-loader postcss-mixins postcss-nested postcss-simple-vars
