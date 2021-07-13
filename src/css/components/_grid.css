@@ -1,0 +1,23 @@
+
+/* Grid */
+.grid {
+  display: grid;
+}
+
+@media screen and (min-width: 768px) {
+
+  /* only need in screen size is wider than 768px */
+  .grid--1x2 {
+    /* one row two column */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  /* only need in screen size is wider than 1024px */
+  .grid--1x3 {
+    /* one row three column */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

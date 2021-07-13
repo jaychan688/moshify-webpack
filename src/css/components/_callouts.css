@@ -1,0 +1,41 @@
+/* Callouts */
+.callout {
+	padding: 4rem;
+	border-radius: 5px;
+
+	.btn {
+		@mixin atMedium {
+			margin: 0 2rem;
+			justify-self: start;
+		}
+		align-self: center;
+		justify-self: center;
+	}
+
+	.grid--1x2 {
+		/* In our callout component, if we have a grid--1x2, apply this rules  */
+		/* second column set to auto, all the extra space will allocate to first column(1fr)  */
+		@mixin atMedium {
+			grid-template-columns: 1fr auto;
+		}
+	}
+
+	&__content {
+		@mixin atMedium {
+			text-align: left;
+		}
+
+		text-align: center;
+	}
+
+	&__heading {
+		margin-top: 0;
+		color: #ffffff;
+		font-size: 3rem;
+	}
+
+	&--primary {
+		background-color: var(--color-primary);
+		color: #ffffff;
+	}
+}

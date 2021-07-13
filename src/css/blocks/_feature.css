@@ -1,0 +1,23 @@
+/* Feature Block */
+.feature {
+	margin: 12rem 0;
+	gap: 4rem 2rem;
+
+	&__heading {
+		margin: 1rem 0;
+	}
+
+	&__image {
+		width: 100%;
+	}
+
+	&:first-of-type {
+		margin-top: 6rem;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.feature:nth-of-type(even) .feature__content {
+		order: 2;
+	}
+}

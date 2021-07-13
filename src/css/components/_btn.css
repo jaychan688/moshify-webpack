@@ -1,0 +1,72 @@
+/* Button */
+.btn {
+	margin: 1rem 0;
+	padding: 2rem 4vw;
+	outline: 0;
+	border: 0;
+	border-radius: 40px;
+	text-align: center;
+	text-transform: uppercase;
+	white-space: nowrap;
+	font-weight: 600;
+	font-size: 1.8rem;
+	cursor: pointer;
+
+	@mixin atLarge {
+		font-size: 1.5rem;
+	}
+	.icon {
+		margin-right: 1rem;
+		width: 2rem;
+		height: 2rem;
+		vertical-align: middle;
+	}
+
+	&--block {
+		display: inline-block;
+		width: 100%;
+	}
+
+	&--stretched {
+		padding-right: 6rem;
+		padding-left: 6rem;
+	}
+
+	&--primary {
+		background-color: var(--color-primary);
+		color: #ffffff;
+	}
+
+	&--primary:hover {
+		background-color: #3a8ffd;
+	}
+
+	&--secondary {
+		background-color: var(--color-secondary);
+		color: #ffffff;
+	}
+
+	&--secondary:hover {
+		background-color: #00c8eb;
+	}
+
+	&--accent {
+		background-color: var(--color-accent);
+		color: #ffffff;
+	}
+
+	&--accent:hover {
+		background-color: #ec3000;
+	}
+
+	&--outline {
+		border: 2px solid var(--color-headings);
+		background-color: #ffffff;
+		color: var(--color-headings);
+
+		&:hover {
+			background-color: var(--color-headings);
+			color: #ffffff;
+		}
+	}
+}

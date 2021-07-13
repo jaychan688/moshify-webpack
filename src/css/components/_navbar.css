@@ -1,0 +1,60 @@
+/* NavBar */
+.nav {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0 1rem;
+	background-color: #000000;
+
+	&__list {
+		margin: 0;
+		/* set width to 100%, combine with flex-wrap can push te ul into second line */
+		width: 100%;
+		@mixin atMedium {
+			display: flex;
+			/* Tricks from collapsible__content */
+			max-height: 100vh;
+			width: auto;
+			font-size: 1.6rem;
+			opacity: 1;
+		}
+	}
+
+	&__brand {
+		transform: translateY(5px);
+	}
+
+	&__item {
+		padding: 0.5rem 2rem;
+		border-bottom: 1px solid #222222;
+		@mixin atMedium {
+			border: 0;
+		}
+
+		& > a {
+			color: #d2d0db;
+			transition: color 0.3s;
+		}
+
+		& > a:hover {
+			color: #ffffff;
+		}
+	}
+
+	&__toggler {
+		opacity: 0.5;
+		cursor: pointer;
+		transition: box-shadow 0.15s;
+		@mixin atMedium {
+			display: none;
+		}
+	}
+}
+
+.nav.collapsible--expanded .nav__toggler {
+	border-radius: 5px;
+	box-shadow: 0 0 0 3px #666666;
+	/*  double class selector, make it more explicit, only apply in NavBar */
+	opacity: 1;
+}

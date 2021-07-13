@@ -1,0 +1,45 @@
+/* Quotes */
+.quote {
+	color: var(--color-body-darker);
+	font-style: italic;
+	font-size: 4rem;
+	line-height: 1.3;
+	@mixin atLarge {
+		font-size: 2rem;
+	}
+
+	&__author {
+		margin-bottom: 0;
+		font-weight: 500;
+		font-style: normal;
+		font-size: 3rem;
+		@mixin atLarge {
+			font-size: 2.4rem;
+		}
+	}
+
+	&__organization {
+		color: var(--color-headings);
+		font-style: normal;
+		font-size: 2rem;
+		opacity: 0.5;
+		@mixin atLarge {
+			font-size: 1.6rem;
+		}
+	}
+
+	&__line {
+		position: relative;
+		bottom: 10px;
+	}
+
+	&__text {
+		&::before {
+			content: open-quote;
+		}
+
+		&::after {
+			content: close-quote;
+		}
+	}
+}

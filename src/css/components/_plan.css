@@ -1,0 +1,75 @@
+/* Plan */
+.plan {
+	/* transition for all plan, weather popular or not*/
+	transition: transform 0.2s ease-out;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	.list {
+		margin-bottom: 0;
+	}
+
+	.list__item {
+		padding-bottom: 2rem;
+	}
+
+	.plan--popular {
+		transform: scale(1.1);
+
+		&:hover {
+			transform: scale(1.15);
+		}
+
+		.card__header {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				top: -6px;
+				right: 5%;
+				display: inline-block;
+				width: 40px;
+				content: url(../images/popular.svg);
+			}
+		}
+	}
+
+	&__name {
+		margin: 0;
+		color: #ffffff;
+		font-weight: 500;
+		font-size: 2.4rem;
+		@mixin atLarge {
+			font-size: 1.4rem;
+		}
+	}
+
+	&__price {
+		font-size: 6rem;
+		@mixin atLarge {
+			font-size: 5rem;
+		}
+	}
+
+	&__billing-cycle {
+		margin-right: 1rem;
+		font-weight: 300;
+		font-size: 2.4rem;
+		opacity: 0.8;
+		@mixin atLarge {
+			font-size: 1.6rem;
+		}
+	}
+
+	&__description {
+		display: block;
+		letter-spacing: 1px;
+		font-weight: 300;
+		font-size: 2rem;
+		@mixin atLarge {
+			font-size: 1.7rem;
+		}
+	}
+}

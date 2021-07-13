@@ -1,0 +1,43 @@
+/* Blocks */
+.container {
+	margin: 0 auto;
+	max-width: 1140px;
+}
+
+.block {
+	padding: var(--padding-vertical) 2rem;
+	--padding-vertical: 6rem;
+	/* border: 2px solid red; */
+
+	&__header {
+		margin-bottom: 4rem;
+		text-align: center;
+	}
+
+	&__heading {
+		margin-top: 0;
+	}
+
+	&--dark {
+		background-color: #000000;
+		color: #7b858b;
+
+		h1,
+		h2,
+		h3 {
+			color: #ffffff;
+		}
+	}
+
+	&-skewed-right {
+		padding-bottom: calc(var(--padding-vertical) + 4rem);
+
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 95%);
+	}
+
+	&-skewed-left {
+		padding-bottom: calc(var(--padding-vertical) + 4rem);
+
+		clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 0% 100%);
+	}
+}

@@ -1,0 +1,31 @@
+/* Card */
+.card {
+	/* card__header is overflow, set the container overflow to hidden*/
+	overflow: hidden;
+	border-radius: 7px;
+	/* box-shadow: horizontal vertical blur spread color */
+	box-shadow: 0 0 20px 10px #f3f3f3;
+}
+
+.card__header,
+.card__body {
+	padding: 2rem 3rem;
+}
+
+.card--primary .card__header {
+	background-color: var(--color-primary);
+	color: #ffffff;
+}
+
+.card--secondary .card__header {
+	background-color: var(--color-secondary);
+	color: #ffffff;
+}
+
+.card--primary .badge--primary {
+	background-color: #126de4;
+}
+
+.card--secondary .badge--secondary {
+	background-color: #02cdf1;
+}

@@ -1,0 +1,28 @@
+/* Domain Block  */
+.block-domain {
+	.input-group {
+		margin: 4rem auto;
+		max-width: 670px;
+		border: 0;
+		box-shadow: 0 0 30px 20px #e6ebee;
+	}
+
+	&__prices {
+		color: var(--color-headings);
+		display: grid;
+		justify-content: center;
+		margin: 0 auto;
+		max-width: 700px;
+		font-weight: 600;
+		font-size: 2rem;
+		/* rows column */
+		gap: 1rem 0;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+
+		@mixin atMedium {
+			font-size: 1.5rem;
+			grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+		}
+	}
+}

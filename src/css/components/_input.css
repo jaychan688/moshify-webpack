@@ -1,0 +1,36 @@
+/* Input */
+::placeholder {
+	color: #cdcdc7;
+}
+
+.input {
+	padding: 1.5rem 3.5rem;
+	outline: 0;
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius);
+	color: var(--color-headings);
+	font-size: 2.2rem;
+
+	@mixin atLarge {
+		font-size: 1.8rem;
+	}
+}
+
+.input-group {
+	display: flex;
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius);
+
+	.input {
+		/* input will grow and take of all the available space */
+		flex-grow: 1;
+		padding: 1.5rem 2rem;
+		/* Set width to 0, and let flex-grow to take care of width, not browser default behavior */
+		width: 0;
+		border: 0;
+	}
+
+	.btn {
+		margin: 4px;
+	}
+}

@@ -1,0 +1,35 @@
+/* Testimonial */
+
+.testimonial {
+	padding: 3rem;
+
+	.card {
+		overflow: inherit;
+	}
+}
+
+.testimonial__image {
+	position: relative;
+}
+
+.testimonial__image > img {
+	/* 100% width of it's container, so if the container comes larger or smaller, the image will resize accordingly. */
+	width: 100%;
+}
+
+.testimonial__image > .icon-container {
+	position: absolute;
+	top: 3rem;
+	right: -32px;
+}
+
+@media screen and (min-width: 768px) {
+	.testimonial .quote,
+	.testimonial .quote__author {
+		font-size: 2.4rem;
+	}
+
+	.testimonial .quote {
+		margin-left: 6rem;
+	}
+}
