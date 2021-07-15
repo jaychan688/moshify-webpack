@@ -15,6 +15,17 @@ const cssConfig = {
 	use: ['css-loader', 'postcss-loader'],
 }
 
+const entries = fse
+	.readdirSync('./src/components')
+	.filter(file => {
+		return file.endsWith('.html')
+	})
+	.reduce((entry, page) => {
+		let filename = page.slice(0, page.indexOf('.'))
+		entry[filename] = `./src/components/${filename}.js`
+		return entry
+	}, {})
+
 const pages = fse
 	.readdirSync('./src/components')
 	.filter(file => {
@@ -22,6 +33,7 @@ const pages = fse
 	})
 	.map(page => {
 		return new HtmlWebpackPlugin({
+			inject: true,
 			filename: page,
 			template: `./src/components/${page}`,
 			// entry 要搭配  chunks
@@ -30,32 +42,7 @@ const pages = fse
 	})
 
 const config = {
-	entry: {
-		'block-domain': './src/components/block-domain.js',
-		'block-feature': './src/components/block-feature.js',
-		'block-footer': './src/components/block-footer.js',
-		'block-hero': './src/components/block-hero.js',
-		'block-plan': './src/components/block-plan.js',
-		'block-showcase': './src/components/block-showcase.js',
-		'block-testimonial': './src/components/block-testimonial.js',
-		badge: './src/components/badge.js',
-		blocks: './src/components/blocks.js',
-		blocks: './src/components/blocks.js',
-		button: './src/components/button.js',
-		callouts: './src/components/callouts.js',
-		card: './src/components/card.js',
-		collapsible: './src/components/collapsible.js',
-		grid: './src/components/grid.js',
-		icon: './src/components/icon.js',
-		input: './src/components/input.js',
-		link: './src/components/link.js',
-		lists: './src/components/lists.js',
-		media: './src/components/media.js',
-		navbar: './src/components/navbar.js',
-		plan: './src/components/plan.js',
-		quote: './src/components/quote.js',
-		Testimonials: './src/components/Testimonials.js',
-	},
+	entry: entries,
 	module: {
 		rules: [
 			cssConfig,
@@ -88,15 +75,15 @@ if (currentTask === 'dev') {
 		filename: '[name].js',
 		// output the bundle.js to the src folder,
 		// side by side by the index.html, using absolute path.
-		path: path.resolve(__dirname, 'src'),
+		path: path.resolve(__dirname, 'public'),
 	}
 
 	config.devServer = {
 		// Middleware: modify html file and auto reload, full page reload
 		before: (app, server) => {
-			server._watch('./src/**/*.html')
+			server._watch('./src/components/**/*.html')
 		},
-		contentBase: path.join(__dirname, 'src'),
+		contentBase: path.join(__dirname, 'public'),
 		hot: true,
 		open: true,
 		port: 3000,

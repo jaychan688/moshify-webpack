@@ -21,10 +21,10 @@ const cssConfig = {
 
 const pages = fse
 	.readdirSync('./src')
-	.filter((file) => {
+	.filter(file => {
 		return file.endsWith('.html')
 	})
-	.map((page) => {
+	.map(page => {
 		return new HtmlWebpackPlugin({
 			filename: page,
 			template: `./src/${page}`,
