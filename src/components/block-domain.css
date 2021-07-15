@@ -1,0 +1,4 @@
+@import 'normalize.css';
+/* The order matters, always put mixin on the top */
+@import '../css/settings/_mixins.css';
+@import '../css/settings/_global.css';
