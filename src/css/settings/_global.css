@@ -1,7 +1,6 @@
 :root {
 	--border-radius: 30px;
-	/* accent: 強調 */
-	--color-accent: #ff3400;
+	--color-accent: #ff3400; /* accent: 強調 */
 	--color-body: #918ca4;
 	--color-body-darker: #5c5577;
 	--color-border: #cccccc;
