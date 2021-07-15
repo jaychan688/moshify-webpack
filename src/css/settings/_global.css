@@ -35,6 +35,11 @@ body {
 		font-size: 1.8rem;
 	}
 }
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
 
 h1,
 h2,

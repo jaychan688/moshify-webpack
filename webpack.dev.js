@@ -31,11 +31,30 @@ const pages = fse
 
 const config = {
 	entry: {
-		link: './src/components/link.js',
+		'block-domain': './src/components/block-domain.js',
+		'block-feature': './src/components/block-feature.js',
+		'block-footer': './src/components/block-footer.js',
+		'block-hero': './src/components/block-hero.js',
+		'block-plan': './src/components/block-plan.js',
+		'block-showcase': './src/components/block-showcase.js',
+		'block-testimonial': './src/components/block-testimonial.js',
 		badge: './src/components/badge.js',
+		blocks: './src/components/blocks.js',
 		blocks: './src/components/blocks.js',
 		button: './src/components/button.js',
 		callouts: './src/components/callouts.js',
+		card: './src/components/card.js',
+		collapsible: './src/components/collapsible.js',
+		grid: './src/components/grid.js',
+		icon: './src/components/icon.js',
+		input: './src/components/input.js',
+		link: './src/components/link.js',
+		lists: './src/components/lists.js',
+		media: './src/components/media.js',
+		navbar: './src/components/navbar.js',
+		plan: './src/components/plan.js',
+		quote: './src/components/quote.js',
+		Testimonials: './src/components/Testimonials.js',
 	},
 	module: {
 		rules: [

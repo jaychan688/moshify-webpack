@@ -1,4 +1,11 @@
-@import 'normalize.css';
+/* @import 'normalize.css'; */
 /* The order matters, always put mixin on the top */
 @import '../css/settings/_mixins.css';
 @import '../css/settings/_global.css';
+
+@import '../css/components/_block.css';
+@import '../css/components/_links.css';
+@import '../css/components/_grid.css';
+@import '../css/components/_btn.css';
+
+@import '../css/blocks/_hero.css';
