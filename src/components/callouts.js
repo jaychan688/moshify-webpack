@@ -1,1 +1,1 @@
-import './callouts.css'
+import './callouts.pcss'

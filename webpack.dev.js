@@ -11,38 +11,51 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const fse = require('fs-extra')
 
 const cssConfig = {
-	test: /\.css$/i,
+	test: /\.(pc|c)ss$/i,
 	use: ['css-loader', 'postcss-loader'],
 }
 
-const entries = fse
-	.readdirSync('./src/components')
-	.filter(file => {
-		return file.endsWith('.html')
+// Return an Array including the file name of html
+const blocks = fse.readdirSync('./src/blocks').filter(file => {
+	return file.endsWith('.html')
+})
+// entries object: key value pair
+const blockEntries = blocks.reduce((entry, page) => {
+	let filename = page.slice(0, page.indexOf('.'))
+	entry[filename] = `./src/blocks/${filename}.js`
+	return entry
+}, {})
+// An array of HtmlWebpackPlugin
+const blockPages = blocks.map(page => {
+	return new HtmlWebpackPlugin({
+		inject: true,
+		filename: page,
+		template: `./src/blocks/${page}`,
+		// entry 要搭配  chunks
+		chunks: [page.slice(0, page.indexOf('.'))],
 	})
-	.reduce((entry, page) => {
-		let filename = page.slice(0, page.indexOf('.'))
-		entry[filename] = `./src/components/${filename}.js`
-		return entry
-	}, {})
+})
 
-const pages = fse
-	.readdirSync('./src/components')
-	.filter(file => {
-		return file.endsWith('.html')
+const components = fse.readdirSync('./src/components').filter(file => {
+	return file.endsWith('.html')
+})
+const entries = components.reduce((entry, page) => {
+	let filename = page.slice(0, page.indexOf('.'))
+	entry[filename] = `./src/components/${filename}.js`
+	return entry
+}, {})
+const pages = components.map(page => {
+	return new HtmlWebpackPlugin({
+		inject: true,
+		filename: page,
+		template: `./src/components/${page}`,
+		// entry 要搭配  chunks
+		chunks: [page.slice(0, page.indexOf('.'))],
 	})
-	.map(page => {
-		return new HtmlWebpackPlugin({
-			inject: true,
-			filename: page,
-			template: `./src/components/${page}`,
-			// entry 要搭配  chunks
-			chunks: [page.slice(0, page.indexOf('.'))],
-		})
-	})
+})
 
 const config = {
-	entry: entries,
+	entry: { ...blockEntries, ...entries },
 	module: {
 		rules: [
 			cssConfig,
@@ -64,7 +77,7 @@ const config = {
 			},
 		],
 	},
-	plugins: pages,
+	plugins: [...pages, ...blockPages],
 }
 
 if (currentTask === 'dev') {
@@ -80,16 +93,15 @@ if (currentTask === 'dev') {
 
 	config.devServer = {
 		// Middleware: modify html file and auto reload, full page reload
-		before: (app, server) => {
-			server._watch('./src/components/**/*.html')
-		},
+		// before: (app, server) => {
+		// 	server._watch('./src/components/**/*.html')
+		// },
 		contentBase: path.join(__dirname, 'public'),
+		watchContentBase: true,
 		hot: true,
 		open: true,
 		port: 3000,
 		historyApiFallback: true,
-		// Let server to be accessible externally, allow mobile test
-		// Modify package.json, scripts -> "start": "webpack serve --open  --host localhost"
 		host: '0.0.0.0',
 	}
 
@@ -106,7 +118,7 @@ class RunAfterCompile {
 	}
 }
 
-if (currentTask === 'build') {
+if (currentTask === 'multibuild') {
 	cssConfig.use.unshift(MiniCssExtractPlugin.loader)
 
 	config.output = {

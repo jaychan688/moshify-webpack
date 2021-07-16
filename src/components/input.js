@@ -1,1 +1,1 @@
-import './input.css'
+import './input.pcss'

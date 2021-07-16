@@ -1,1 +1,1 @@
-import './collapsible.css'
+import './collapsible.pcss'

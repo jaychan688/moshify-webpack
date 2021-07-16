@@ -1,1 +1,1 @@
-import './lists.css'
+import './lists.pcss'

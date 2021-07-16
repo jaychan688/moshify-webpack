@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;700&display=swap');
+
+:root {
+	--border-radius: 30px;
+	--color-accent: #ff3400; /* accent: 強調 */
+	--color-body: #918ca4;
+	--color-body-darker: #5c5577;
+	--color-border: #cccccc;
+	--color-headings: #1b0760;
+	--color-primary: #2584ff;
+	--color-secondary: #00d9ff;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Basic Typography And Margin Setting*/
+::selection {
+	background-color: var(--color-primary);
+	color: #ffffff;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	color: var(--color-body);
+	/* Use large font for Mobile screen*/
+	font-size: 2.4rem;
+	font-family: Inter, 'Noto Sans TC', Arial, Helvetica, sans-serif;
+	line-height: 1.5;
+	@mixin lg {
+		font-size: 1.8rem;
+	}
+}
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3 {
+	margin-bottom: 1rem;
+	color: var(--color-headings);
+
+	/* 1.5 is greater for body tags, doesn't look good for heading */
+	line-height: 1.1;
+}
+
+h1 {
+	font-size: 7rem;
+
+	@mixin lg {
+		font-size: 8rem;
+	}
+}
+
+h2 {
+	font-size: 4rem;
+
+	@mixin lg {
+		font-size: 4rem;
+	}
+}
+
+h3 {
+	font-weight: 500;
+	font-size: 3rem;
+
+	@mixin lg {
+		font-weight: 500;
+		font-size: 2.4rem;
+	}
+}
+
+p {
+	/* Margin collapsing between h3 and p*/
+	margin-top: 0;
+}
+/* End Basic Typography And Margin Setting */

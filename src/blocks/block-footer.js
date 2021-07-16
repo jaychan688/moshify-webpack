@@ -1,0 +1,1 @@
+import './block-footer.pcss'

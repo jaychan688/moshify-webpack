@@ -1,1 +1,0 @@
-import './block-hero.css'

@@ -1,1 +1,1 @@
-import './quote.css'
+import './quote.pcss'

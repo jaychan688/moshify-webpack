@@ -1,6 +1,6 @@
-import './index.css'
+import './index.pcss'
 
-const pages = [
+const blocks = [
 	'block-domain',
 	'block-feature',
 	'block-footer',
@@ -8,6 +8,9 @@ const pages = [
 	'block-plan',
 	'block-showcase',
 	'block-testimonial',
+]
+
+const components = [
 	'badge',
 	'blocks',
 	'button',
@@ -26,8 +29,26 @@ const pages = [
 	'Testimonials',
 ]
 
-const links = pages
-	.map(page => `<li class="list__item"><a href="${page}.html">${page}</a></li>`)
+const blocksLinks = blocks
+	.map(
+		blocks =>
+			`<li><a class="list__item" target="_blank" href="${blocks}.html">${blocks}</a></li>`
+	)
 	.join('')
 
-document.body.insertAdjacentHTML('beforeend', `<ul class="list">${links}</ul>`)
+const componentsLinks = components
+	.map(
+		components =>
+			`<li><a class="list__item" target="_blank" href="${components}.html">${components}</a></li>`
+	)
+	.join('')
+
+document.body.insertAdjacentHTML(
+	'beforeend',
+	`<ul class="list list--pink">${blocksLinks}</ul>
+	<ul class="list list--green">${componentsLinks}</ul>`
+)
+
+if (module.hot) {
+	module.hot.accept()
+}

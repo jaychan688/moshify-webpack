@@ -1,2 +1,3 @@
-import '../css/style.css'
+import '../css/style.pcss'
+
 import './main.js'

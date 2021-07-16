@@ -15,7 +15,7 @@ class RunAfterCompile {
 }
 
 const cssConfig = {
-	test: /\.css$/i,
+	test: /\.(pc|c)ss$/i,
 	use: ['css-loader', 'postcss-loader'],
 }
 

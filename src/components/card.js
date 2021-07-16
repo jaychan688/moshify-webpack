@@ -1,1 +1,1 @@
-import './card.css'
+import './card.pcss'
