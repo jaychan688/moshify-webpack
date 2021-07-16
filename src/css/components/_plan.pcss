@@ -15,7 +15,7 @@
 		padding-bottom: 2rem;
 	}
 
-	.plan--popular {
+	&--popular {
 		transform: scale(1.1);
 
 		&:hover {
@@ -29,6 +29,8 @@
 				position: absolute;
 				top: -6px;
 				right: 5%;
+				/* because this is inline element, 
+				display:inline-block to make the width work */
 				display: inline-block;
 				width: 40px;
 				content: url(../images/popular.svg);
@@ -64,6 +66,7 @@
 	}
 
 	&__description {
+		/* span is inline, set to block push to the next line */
 		display: block;
 		letter-spacing: 1px;
 		font-weight: 300;

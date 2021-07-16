@@ -39,11 +39,13 @@ const blockPages = blocks.map(page => {
 const components = fse.readdirSync('./src/components').filter(file => {
 	return file.endsWith('.html')
 })
+
 const entries = components.reduce((entry, page) => {
 	let filename = page.slice(0, page.indexOf('.'))
 	entry[filename] = `./src/components/${filename}.js`
 	return entry
 }, {})
+
 const pages = components.map(page => {
 	return new HtmlWebpackPlugin({
 		inject: true,

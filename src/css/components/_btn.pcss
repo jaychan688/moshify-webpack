@@ -1,5 +1,7 @@
 /* Button */
+
 .btn {
+	/* Define the basic structure */
 	margin: 1rem 0;
 	padding: 2rem 4vw;
 	outline: 0;
@@ -23,9 +25,22 @@
 		vertical-align: middle;
 	}
 
+	/* Using Modifier to define skin */
 	&--block {
 		display: inline-block;
+		/* inline-block, width will work, set to 100% to expend to full width */
 		width: 100%;
+	}
+
+	&--outline {
+		border: 2px solid var(--color-headings);
+		background-color: #ffffff;
+		color: var(--color-headings);
+
+		&:hover {
+			background-color: var(--color-headings);
+			color: #ffffff;
+		}
 	}
 
 	&--stretched {
@@ -35,11 +50,13 @@
 
 	&--primary {
 		background-color: var(--color-primary);
+		background-color: $primary;
 		color: #ffffff;
 	}
 
 	&--primary:hover {
 		background-color: #3a8ffd;
+		/* background: color(red shade(20%)); */
 	}
 
 	&--secondary {
@@ -58,16 +75,5 @@
 
 	&--accent:hover {
 		background-color: #ec3000;
-	}
-
-	&--outline {
-		border: 2px solid var(--color-headings);
-		background-color: #ffffff;
-		color: var(--color-headings);
-
-		&:hover {
-			background-color: var(--color-headings);
-			color: #ffffff;
-		}
 	}
 }

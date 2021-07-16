@@ -9,6 +9,7 @@ const config = {
 		require('postcss-nested'),
 		// postcss-hexrgba: Adds shorthand hex methods to rgba() values.
 		require('postcss-hexrgba'),
+		require('postcss-color-function'),
 		require('autoprefixer'),
 	],
 }

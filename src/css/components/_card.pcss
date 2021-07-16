@@ -1,31 +1,43 @@
 /* Card */
+/* Basic Structure */
 .card {
-	/* card__header is overflow, set the container overflow to hidden*/
+	/* border-radius always cause the child element overflow,
+	card__header is overflow, set the container overflow to hidden */
 	overflow: hidden;
 	border-radius: 7px;
 	/* box-shadow: horizontal vertical blur spread color */
 	box-shadow: 0 0 20px 10px #f3f3f3;
+	/* apply the same padding to header and body, componet will align properly*/
+	&__header,
+	&__body {
+		padding: 2rem 3rem;
+	}
 }
 
-.card__header,
-.card__body {
-	padding: 2rem 3rem;
+/* Skin */
+.card--primary {
+	/* 
+		If element has a class .card--primary,
+		the .card__header in this element should have
+		background blue and color white
+	*/
+	.card__header {
+		background-color: var(--color-primary);
+		color: #ffffff;
+	}
+	/* This is for plan components */
+	.badge--primary {
+		background-color: #126de4;
+	}
 }
 
-.card--primary .card__header {
-	background-color: var(--color-primary);
-	color: #ffffff;
-}
+.card--secondary {
+	.card__header {
+		background-color: var(--color-secondary);
+		color: #ffffff;
+	}
 
-.card--secondary .card__header {
-	background-color: var(--color-secondary);
-	color: #ffffff;
-}
-
-.card--primary .badge--primary {
-	background-color: #126de4;
-}
-
-.card--secondary .badge--secondary {
-	background-color: #02cdf1;
+	.badge--secondary {
+		background-color: #02cdf1;
+	}
 }
