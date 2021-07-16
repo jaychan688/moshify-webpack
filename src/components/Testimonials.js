@@ -1,1 +1,1 @@
-import './Testimonials.pcss'
+import './testimonials.pcss'

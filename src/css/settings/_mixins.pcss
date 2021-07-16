@@ -1,16 +1,16 @@
+/* If screen is large than 478px */
 @define-mixin sm {
-	/* If screen is large than 478px */
 	@media screen and (min-width: 640px) {
 		@mixin-content;
 	}
 }
-
+/* only need in screen size is wider than 768px */
 @define-mixin md {
 	@media screen and (min-width: 768px) {
 		@mixin-content;
 	}
 }
-
+/* only need in screen size is wider than 1024px */
 @define-mixin lg {
 	@media screen and (min-width: 1024px) {
 		@mixin-content;

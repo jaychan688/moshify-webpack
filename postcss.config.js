@@ -1,4 +1,4 @@
-const currentTask = process.env.npm_lifecycle_event
+const currentTask = process.env.NODE_ENV || 'development'
 
 const config = {
 	plugins: [
@@ -14,7 +14,6 @@ const config = {
 	],
 }
 
-if (currentTask === 'multibuild' || currentTask === 'build')
-	config.plugins.push(require('cssnano'))
+if (currentTask === 'production') config.plugins.push(require('cssnano'))
 
 module.exports = config

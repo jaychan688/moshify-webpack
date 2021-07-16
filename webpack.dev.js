@@ -1,6 +1,4 @@
 const path = require('path')
-// Depend on npm scripts we define: npm_lifecycle_event:
-const currentTask = process.env.npm_lifecycle_event
 // Remove/clean your build folder(s).
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // Extracts CSS into separate files.
@@ -10,6 +8,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // Replacement for native fs
 const fse = require('fs-extra')
 
+const currentTask = process.env.NODE_ENV || 'development'
+// DevServer bug: Temporary workaround for 'browserslist', that is bing patched in near futtue
+const target = process.env.NODE_ENV === 'product' ? 'browserslist' : 'web'
+
+/*********** COMMON  ************/
 const cssConfig = {
 	test: /\.(pc|c)ss$/i,
 	use: ['css-loader', 'postcss-loader'],
@@ -51,13 +54,15 @@ const pages = components.map(page => {
 		inject: true,
 		filename: page,
 		template: `./src/components/${page}`,
-		// entry 要搭配  chunks
 		chunks: [page.slice(0, page.indexOf('.'))],
 	})
 })
 
 const config = {
 	entry: { ...blockEntries, ...entries },
+	// default to 'web', but add browserslist, live reload won't work,  so set to 'web' only required for web-dev-server bugs"
+	target,
+	mode: currentTask,
 	module: {
 		rules: [
 			cssConfig,
@@ -67,13 +72,13 @@ const config = {
 				use: ['babel-loader'],
 			},
 			// Webpack build in asset modules - is type not use loader
-			// For Images
 			{
+				// For Images
 				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 				type: 'asset/resource',
 			},
-			// For Fonts and SVGs
 			{
+				// For Fonts and SVGs
 				test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
 				type: 'asset/inline',
 			},
@@ -82,35 +87,33 @@ const config = {
 	plugins: [...pages, ...blockPages],
 }
 
-if (currentTask === 'dev') {
+/*********** DEVELOPMENT  ************/
+if (currentTask === 'development') {
 	cssConfig.use.unshift('style-loader')
 
 	config.output = {
 		// multi-page seeting: [name] to output different js to match html.
 		filename: '[name].js',
-		// output the bundle.js to the src folder,
-		// side by side by the index.html, using absolute path.
+		// output the bundle.js to the public folder, must match devServer contentBase
 		path: path.resolve(__dirname, 'public'),
 	}
 
 	config.devServer = {
-		// Middleware: modify html file and auto reload, full page reload
-		// before: (app, server) => {
-		// 	server._watch('./src/components/**/*.html')
-		// },
+		// Middleware:  html auto reload - full page reload
+		before: (app, server) => {
+			server._watch('./src/components/**/*.html')
+		},
 		contentBase: path.join(__dirname, 'public'),
-		watchContentBase: true,
 		hot: true,
 		open: true,
 		port: 3000,
 		historyApiFallback: true,
 		host: '0.0.0.0',
 	}
-
-	config.mode = 'development'
 	config.devtool = 'source-map'
 }
 
+/*********** PRODUCTION  ************/
 // Copy images folder
 class RunAfterCompile {
 	apply(compiler) {
@@ -120,7 +123,7 @@ class RunAfterCompile {
 	}
 }
 
-if (currentTask === 'multibuild') {
+if (currentTask === 'production') {
 	cssConfig.use.unshift(MiniCssExtractPlugin.loader)
 
 	config.output = {
