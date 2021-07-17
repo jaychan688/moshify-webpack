@@ -1,32 +1,32 @@
 import './index.pcss'
 
 const blocks = [
-	'block-domain',
-	'block-feature',
-	'block-footer',
 	'block-hero',
+	'block-domain',
 	'block-plan',
+	'block-feature',
 	'block-showcase',
 	'block-testimonial',
+	'block-footer',
 ]
 
 const components = [
-	'badge',
-	'blocks',
-	'btn',
-	'callouts',
-	'card',
-	'collapsible',
-	'grid',
-	'icon',
-	'input',
 	'link',
+	'badge',
 	'lists',
-	'media',
-	'navbar',
+	'icon',
+	'btn',
+	'input',
+	'card',
 	'plan',
+	'media',
 	'quote',
+	'grid',
 	'testimonial',
+	'callouts',
+	'collapsible',
+	'blocks',
+	'navbar',
 ]
 
 const blocksLinks = blocks
@@ -48,7 +48,3 @@ document.body.insertAdjacentHTML(
 	`<ul class="list list--pink">${blocksLinks}</ul>
 	<ul class="list list--green">${componentsLinks}</ul>`
 )
-
-if (module.hot) {
-	module.hot.accept()
-}

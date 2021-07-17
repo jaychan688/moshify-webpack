@@ -1,5 +1,5 @@
 /* Feature Block */
-.feature {
+.block-feature {
 	margin: 12rem 0;
 	gap: 4rem 2rem;
 
@@ -14,10 +14,18 @@
 	&:first-of-type {
 		margin-top: 6rem;
 	}
+
+	&:nth-of-type(even) {
+		@mixin md {
+			.feature__content {
+				order: 2;
+			}
+		}
+	}
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
 	.feature:nth-of-type(even) .feature__content {
 		order: 2;
 	}
-}
+} */

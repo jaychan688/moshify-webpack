@@ -2,11 +2,11 @@
 
 ## project need
 
-lodash normalize.css lazysizes
+normalize.css regenerator-runtime core-js
 
 ## webpack core
 
-fs-extra webpack webpack-cli webpack-dev-server
+cross-env fs-extra webpack webpack-cli webpack-dev-server
 
 ## es5
 

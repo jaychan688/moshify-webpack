@@ -1,18 +1,12 @@
-const currentTask = process.env.npm_lifecycle_event
+// ! SPA setting
 const path = require('path')
-
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const fse = require('fs-extra')
 
-class RunAfterCompile {
-	apply(compiler) {
-		compiler.hooks.done.tap('Copy images', () => {
-			fse.copySync('./src/images', './dist/images')
-		})
-	}
-}
+const currentTask = process.env.NODE_ENV || 'development'
+const target = process.env.NODE_ENV === 'product' ? 'browserslist' : 'web'
 
 const cssConfig = {
 	test: /\.(pc|c)ss$/i,
@@ -33,7 +27,8 @@ const pages = fse
 
 const config = {
 	entry: './src/js/index.js',
-	plugins: pages,
+	target,
+	mode: currentTask,
 	module: {
 		rules: [
 			cssConfig,
@@ -42,50 +37,53 @@ const config = {
 				exclude: /(node_modules)/,
 				use: ['babel-loader'],
 			},
-			// Webpack build in asset modules - is type not use loader
-			// For Images
 			{
 				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 				type: 'asset/resource',
 			},
-			// For Fonts and SVGs
 			{
 				test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
 				type: 'asset/inline',
 			},
 		],
 	},
+	plugins: pages,
 }
 
-if (currentTask === 'start') {
+/*********** DEVELOPMENT  ************/
+
+if (currentTask === 'development') {
 	cssConfig.use.unshift('style-loader')
 
 	config.output = {
 		filename: 'bundle.js',
-		// output the bundle.js to the src folder,side by side by the index.html, using absolute path.
-		path: path.resolve(__dirname, 'src'),
+		path: path.resolve(__dirname, 'dist'),
 	}
 
 	config.devServer = {
-		// Middleware: modify html file and auto reload, full page reload
 		before: (app, server) => {
 			server._watch('./src/**/*.html')
 		},
-		contentBase: path.join(__dirname, 'src'),
+		contentBase: path.join(__dirname, 'dist'),
 		hot: true,
 		open: true,
 		port: 3000,
 		historyApiFallback: true,
-		// Let server to be accessible externally, allow mobile test
-		// Modify package.json, scripts -> "start": "webpack serve --open  --host localhost"
 		host: '0.0.0.0',
 	}
-
-	config.mode = 'development'
 	config.devtool = 'source-map'
 }
 
-if (currentTask === 'build') {
+/*********** PRODUCTION  ************/
+class RunAfterCompile {
+	apply(compiler) {
+		compiler.hooks.done.tap('Copy images', () => {
+			fse.copySync('./src/images', './dist/images')
+		})
+	}
+}
+
+if (currentTask === 'production') {
 	cssConfig.use.unshift(MiniCssExtractPlugin.loader)
 
 	config.output = {
@@ -94,7 +92,6 @@ if (currentTask === 'build') {
 		path: path.resolve(__dirname, 'dist'),
 	}
 
-	config.mode = 'production'
 	config.optimization = {
 		splitChunks: { chunks: 'all' },
 	}

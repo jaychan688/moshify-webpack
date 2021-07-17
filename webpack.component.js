@@ -95,15 +95,16 @@ if (currentTask === 'development') {
 		// multi-page seeting: [name] to output different js to match html.
 		filename: '[name].js',
 		// output the bundle.js to the public folder, must match devServer contentBase
-		path: path.resolve(__dirname, 'public'),
+		path: path.resolve(__dirname, 'dist'),
 	}
 
 	config.devServer = {
 		// Middleware:  html auto reload - full page reload
 		before: (app, server) => {
 			server._watch('./src/components/**/*.html')
+			server._watch('./src/blocks/**/*.html')
 		},
-		contentBase: path.join(__dirname, 'public'),
+		contentBase: path.join(__dirname, 'dist'),
 		hot: true,
 		open: true,
 		port: 3000,
@@ -132,7 +133,6 @@ if (currentTask === 'production') {
 		path: path.resolve(__dirname, 'dist'),
 	}
 
-	config.mode = 'production'
 	config.optimization = {
 		splitChunks: { chunks: 'all' },
 	}
