@@ -14,7 +14,7 @@ const target = process.env.NODE_ENV === 'product' ? 'browserslist' : 'web'
 
 /*********** COMMON  ************/
 const cssConfig = {
-	test: /\.(pc|c)ss$/i,
+	test: /\.(s[ac]|pc|c)ss$/i,
 	use: ['css-loader', 'postcss-loader'],
 }
 

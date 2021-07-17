@@ -1,4 +1,5 @@
 import './index.pcss'
+import '../scss/test.scss'
 
 const blocks = [
 	'block-hero',
@@ -31,19 +32,19 @@ const components = [
 
 const blocksLinks = blocks
 	.map(
-		blocks =>
+		(blocks) =>
 			`<li><a class="list__item" target="_blank" href="${blocks}.html">${blocks}</a></li>`
 	)
 	.join('')
 
 const componentsLinks = components
 	.map(
-		components =>
+		(components) =>
 			`<li><a class="list__item" target="_blank" href="${components}.html">${components}</a></li>`
 	)
 	.join('')
 
-document.body.insertAdjacentHTML(
+document.querySelector('#root').insertAdjacentHTML(
 	'beforeend',
 	`<ul class="list list--pink">${blocksLinks}</ul>
 	<ul class="list list--green">${componentsLinks}</ul>`
