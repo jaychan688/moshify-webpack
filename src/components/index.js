@@ -26,7 +26,7 @@ const components = [
 	'navbar',
 	'plan',
 	'quote',
-	'testimonials',
+	'testimonial',
 ]
 
 const blocksLinks = blocks

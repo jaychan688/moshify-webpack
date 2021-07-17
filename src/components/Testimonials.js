@@ -1,1 +1,0 @@
-import './testimonials.pcss'
