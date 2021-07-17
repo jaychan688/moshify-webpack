@@ -1,23 +1,27 @@
-<div class="collapsible collapsible--expanded">
+<!-- Has collapsible--toggle class: show the content -->
+<div class="collapsible collapsible--toggle">
 	<header class="collapsible__header">
-		<h2 class="collapsible__heading">Item1</h2>
-		<svg class="icon icon--primary icon--white collapsible__chevron">
+		<h2 class="collapsible__heading">Show the content</h2>
+		<svg class="icon icon--white collapsible__chevron">
 			<use xlink:href="images/sprite.svg#chevron"></use>
 		</svg>
 	</header>
 	<div class="collapsible__content">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, vitae!
+		Get an access token from an authentication server
 	</div>
 </div>
 
-<div class="collapsible collapsible--expanded">
+<div style="height:40px;width:200px; margin:2rem auto">---我是分隔線---</div>
+
+<!-- No collapsible--toggle class: hide the content -->
+<div class="collapsible">
 	<header class="collapsible__header">
-		<h2 class="collapsible__heading">Item1</h2>
-		<svg class="icon icon--primary icon--white collapsible__chevron">
+		<h2 class="collapsible__heading">Hide the content</h2>
+		<svg class="icon icon--white collapsible__chevron">
 			<use xlink:href="images/sprite.svg#chevron"></use>
 		</svg>
 	</header>
 	<div class="collapsible__content">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, vitae!
+		Send the access token to your backend server with each subsequent request
 	</div>
 </div>

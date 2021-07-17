@@ -4,8 +4,11 @@ const config = {
 	plugins: [
 		// Must set mixins plugin before postcss-simple-vars and postcss-nested.
 		require('postcss-import'),
-		require('postcss-mixins'),
+		// ! simple vars won't work in import (demo: btn)
 		require('postcss-simple-vars'),
+		require('postcss-mixins'),
+		// Transform CSS Custom Properties (CSS variables) syntax into a static representation.
+		require('postcss-css-variables'),
 		require('postcss-nested'),
 		// postcss-hexrgba: Adds shorthand hex methods to rgba() values.
 		require('postcss-hexrgba'),

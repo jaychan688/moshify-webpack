@@ -1,4 +1,5 @@
 /* Button */
+/* $varColor: red; */
 
 .btn {
 	/* Define the basic structure */
@@ -37,6 +38,9 @@
 		background-color: #ffffff;
 		color: var(--color-headings);
 
+		/* todo: fix it */
+		/* color: $varColor; */
+
 		&:hover {
 			background-color: var(--color-headings);
 			color: #ffffff;
@@ -50,13 +54,12 @@
 
 	&--primary {
 		background-color: var(--color-primary);
-		/* background-color: $primary; */
 		color: #ffffff;
 	}
 
 	&--primary:hover {
-		background-color: #3a8ffd;
-		/* background: color(red shade(20%)); */
+		/* background-color: #3a8ffd; */
+		background: color(var(--color-primary) tint(20%));
 	}
 
 	&--secondary {

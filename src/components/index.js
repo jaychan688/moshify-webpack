@@ -13,7 +13,7 @@ const blocks = [
 const components = [
 	'badge',
 	'blocks',
-	'button',
+	'btn',
 	'callouts',
 	'card',
 	'collapsible',

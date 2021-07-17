@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"build": "cross-env NODE_ENV=production webpack",
-		"multi-build": "cross-env NODE_ENV=production webpack --config webpack.dev.js",
+		"multi:build": "cross-env NODE_ENV=production webpack --config webpack.dev.js",
 		"dev": "webpack serve --config webpack.dev.js --host localhost",
 		"start": "webpack serve --host localhost"
 	},
@@ -25,8 +25,6 @@
 	"homepage": "https://github.com/jaychan688/travel-site#readme",
 	"dependencies": {
 		"core-js": "^3.15.2",
-		"lazysizes": "^5.3.2",
-		"lodash": "^4.17.21",
 		"normalize.css": "^8.0.1",
 		"regenerator-runtime": "^0.13.7"
 	},
@@ -46,6 +44,7 @@
 		"mini-css-extract-plugin": "^2.1.0",
 		"postcss": "^8.3.5",
 		"postcss-color-function": "^4.1.0",
+		"postcss-css-variables": "^0.18.0",
 		"postcss-hexrgba": "^2.0.1",
 		"postcss-import": "^14.0.2",
 		"postcss-loader": "^6.1.1",

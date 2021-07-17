@@ -12,32 +12,32 @@
 	&__body {
 		padding: 2rem 3rem;
 	}
-}
 
-/* Skin */
-.card--primary {
-	/* 
+	/* Skin */
+	&--primary {
+		/* 
 		If element has a class .card--primary,
 		the .card__header in this element should have
 		background blue and color white
 	*/
-	.card__header {
-		background-color: var(--color-primary);
-		color: #ffffff;
-	}
-	/* This is for plan components */
-	.badge--primary {
-		background-color: #126de4;
-	}
-}
-
-.card--secondary {
-	.card__header {
-		background-color: var(--color-secondary);
-		color: #ffffff;
+		.card__header {
+			background-color: var(--color-primary);
+			color: #ffffff;
+		}
+		/* This is for plan components */
+		.badge--primary {
+			background-color: #126de4;
+		}
 	}
 
-	.badge--secondary {
-		background-color: #02cdf1;
+	&--secondary {
+		.card__header {
+			background-color: var(--color-secondary);
+			color: #ffffff;
+		}
+
+		.badge--secondary {
+			background-color: #02cdf1;
+		}
 	}
 }

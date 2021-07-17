@@ -4,7 +4,14 @@
 	border-radius: 5px;
 
 	.btn {
+		/* 
+			Grid default value setting align-items:stretch justify-items:streth,
+			cause the a.btn equal height with the .callout__content.
+			chenage the grid-item seting (align-self and justify-self)
+		*/
+		/* Horizontally */
 		align-self: center;
+		/* Vertically */
 		justify-self: center;
 
 		@mixin md {
@@ -14,8 +21,8 @@
 	}
 
 	.grid--1x2 {
-		/* In our callout component, if we have a grid--1x2, apply this rules  */
-		/* second column set to auto, all the extra space will allocate to first column(1fr)  */
+		/* In our callout component, if we have a grid--1x2, apply this rules 
+		   second column set to auto, all the extra space will allocate to first column(1fr)  */
 		@mixin md {
 			grid-template-columns: 1fr auto;
 		}

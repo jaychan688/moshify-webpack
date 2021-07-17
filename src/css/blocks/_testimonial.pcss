@@ -3,33 +3,35 @@
 .testimonial {
 	padding: 3rem;
 
+	@mixin md {
+		.quote,
+		.quote__author {
+			font-size: 2.4rem;
+		}
+
+		.quote {
+			margin-left: 6rem;
+		}
+	}
+
 	.card {
 		overflow: inherit;
 	}
-}
 
-.testimonial__image {
-	position: relative;
-}
-
-.testimonial__image > img {
-	/* 100% width of it's container, so if the container comes larger or smaller, the image will resize accordingly. */
-	width: 100%;
-}
-
-.testimonial__image > .icon-container {
-	position: absolute;
-	top: 3rem;
-	right: -32px;
-}
-
-@media screen and (min-width: 768px) {
-	.testimonial .quote,
-	.testimonial .quote__author {
-		font-size: 2.4rem;
-	}
-
-	.testimonial .quote {
-		margin-left: 6rem;
+	&__image {
+		position: relative;
+		/* Exceptional case direct child selector: 
+		because the structure of this container unlikely to  change */
+		& > img {
+			/* 100% width of it's container, so if the container comes larger or smaller, the image will resize accordingly. */
+			width: 100%;
+		}
+		/* postion the icon */
+		& > .icon-container {
+			position: absolute;
+			top: 3rem;
+			/* icon with:64px set in .icon, offset -32px keep icon in the middle */
+			right: -32px;
+		}
 	}
 }
