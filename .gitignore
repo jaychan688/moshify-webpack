@@ -12,6 +12,7 @@
 node_modules/
 dist/
 .tmp/
+yarn.lock
 
 # OS or Editor folders
 .DS_Store

@@ -8,8 +8,8 @@
 	},
 	"scripts": {
 		"build": "cross-env NODE_ENV=production webpack",
-		"multi:build": "cross-env NODE_ENV=production webpack --config webpack.component.js",
-		"dev": "webpack serve --config webpack.component.js --host localhost",
+		"multi:build": "cross-env NODE_ENV=production webpack --config webpack.MPA.js",
+		"dev": "webpack serve --config webpack.MPA.js --host localhost",
 		"start": "webpack serve --host localhost"
 	},
 	"repository": {
