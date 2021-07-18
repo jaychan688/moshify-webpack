@@ -4,28 +4,33 @@
 	gap: 4rem 2rem;
 
 	&__heading {
+		/* 
+			Remove <h3> top margin 
+			Might have multipage paragraph sepreate by heading. that's why
+			Author don't remove top margin using type selector in global setting.
+		*/
 		margin: 1rem 0;
 	}
 
 	&__image {
+		/* image class only apply in <img>, not <picture> */
 		width: 100%;
 	}
-
+	/* Pseudo class to target first .block-feture */
 	&:first-of-type {
 		margin-top: 6rem;
 	}
 
+	/* Pseudo class to target every second .block-feture */
 	&:nth-of-type(even) {
 		@mixin md {
-			.feature__content {
+			/* 
+				Default order:1 content part change to order:2, image part still order:1 
+				the image will take the position of first item in grid, move left.
+			*/
+			.block-feature__content {
 				order: 2;
 			}
 		}
 	}
 }
-
-/* @media screen and (min-width: 768px) {
-	.feature:nth-of-type(even) .feature__content {
-		order: 2;
-	}
-} */

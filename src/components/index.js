@@ -1,5 +1,4 @@
 import './index.pcss'
-import '../scss/test.scss'
 
 const blocks = [
 	'block-hero',

@@ -5,12 +5,13 @@
 	a {
 		color: #777777;
 		transition: color 0.3s;
+
 		&:hover {
 			color: #ffffff;
 		}
 	}
 
-	.collapsible__chevron {
+	.collapsible__toggler {
 		@mixin md {
 			display: none;
 		}
@@ -20,14 +21,6 @@
 		@mixin md {
 			max-height: 100%;
 			opacity: 1;
-		}
-	}
-
-	&__heading {
-		text-transform: uppercase;
-		font-weight: 600;
-		@mixin md {
-			font-size: 1.6rem;
 		}
 	}
 
@@ -49,10 +42,17 @@
 		}
 	}
 
+	&__heading {
+		text-transform: uppercase;
+		font-weight: 600;
+		@mixin md {
+			font-size: 1.6rem;
+		}
+	}
+
 	&__brand {
 		margin-top: 5rem;
 		text-align: center;
-
 		@mixin md {
 			order: -1;
 			margin-top: 1rem;
@@ -60,7 +60,9 @@
 
 		img {
 			max-width: 230px;
-			/* TODO: Consider refactoring this and applying it all images */
+			/* 
+				TODO: Consider refactoring this and applying it all images 
+			*/
 			width: 100%;
 		}
 	}

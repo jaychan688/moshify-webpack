@@ -1,26 +1,41 @@
-
 /* Show Case Block */
-.block-showcase__image>img {
-  width: 100%;
-}
+.block-showcase {
+	.grid {
+		@mixin md {
+			/* 
+        50% means the 50% width of the container.
+        1fr 1fr means divide the available space, 
+        and each column will get one slice.
+      */
+			grid-template-columns: 50% 50%;
+		}
+	}
+	/* 
+    Apply to <picture>, because <picture> is grid item, 
+    <image> is nested inside <picture>, if class apply to <image>
+    justify-self won't work.
+    that's whay have using decent selector to target <img>
+  */
+	&__image {
+		@mixin md {
+			/* 
+      After 2-cloum 50% seeting, content will overlap over image,
+      justify align self to end of it's own grid line,
+      形成圖片向右移的效果，當螢幕尺寸不夠大時，圖片會向左超出邊界，
+      可視只有圖片本身的一部分
+      */
+			justify-self: end;
+		}
 
-@media screen and (min-width: 768px) {
-  .block-showcase .grid {
-    /* 
-      50% means the 50% width of the container
-      1fr 1fr means divide the available space, and each column will get one slice
-    */
-    grid-template-columns: 50% 50%;
-  }
+		& > img {
+			/* set width:100% make image responsive */
+			width: 100%;
 
-  .block-showcase__image {
-    justify-self: end;
-  }
-
-  .block-showcase__image>img {
-    max-width: 700px;
-
-    /* With width set to auto, the image will display it's actual size*/
-    width: auto;
-  }
+			@mixin md {
+				max-width: 700px;
+				/* With width set to auto, the image will display it's actual size, not responsiable */
+				width: auto;
+			}
+		}
+	}
 }

@@ -11,7 +11,7 @@
 		font-size: 3rem;
 	}
 
-	&__chevron {
+	&__toggler {
 		cursor: pointer;
 		transition: transform 0.3s;
 		/* Rotate arrow icon right 90 degree, 
@@ -35,16 +35,16 @@
 	/* 
 	
 	If has this class in top level (outer container), 
-	then can rotate the chevron and show the content 
+	then can rotate the toggler and show the content 
 	*/
-	&--toggle {
+	&--expanded {
 		.collapsible__content {
 			/* Set max-height, actual height will determinate by it's content */
 			max-height: 100%;
 			opacity: 1;
 		}
-		/* Using collapsible--expanded class control chevron icon rotate and show the content area */
-		.collapsible__chevron {
+		/* Using collapsible--expanded class control toggler icon rotate and show the content area */
+		.collapsible__toggler {
 			/* Arrow icon point down, means expand the content */
 			transform: rotate(0);
 		}
