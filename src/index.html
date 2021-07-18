@@ -3,13 +3,12 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!-- FOR SEO -->
 	<meta name="description" content="Deploy your websites in less than 60 seconds." />
 	<meta property="og:title" content="Moshify - Deploy your websites in less than 60 seconds." />
 	<meta property="og:description"
-		content="Moshify is an imginary cloud hosting company. It's designed to teach people how to build modern websites using HTML5 and CSS3. To learn how to build this website from scratch, get the Ultimate HTML and CSS course on codewithmosh.com." />
+		content="Moshify is an imaginary cloud hosting company. It's designed to teach people how to build modern websites using HTML5 and CSS3. To learn how to build this website from scratch, get the Ultimate HTML and CSS course on codewithmosh.com." />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="http://moshified.com/moshify.jpg" />
 	<meta property="og:url" content="http://moshified.com" />
@@ -26,13 +25,13 @@
 </head>
 
 <body>
+	<!-- Start navbar -->
 	<header>
 		<nav class="nav collapsible">
-			<a class="nav__brand" href="/"><img src="images/logo.svg" alt="" /></a>
-			<svg class="icon icon--white nav__toggler">
+			<a class="nav__brand" href="/"><img src="images/logo.svg" alt=""></a>
+			<svg class="icon icon--white nav__icon">
 				<use xlink:href="images/sprite.svg#menu"></use>
 			</svg>
-
 			<ul class="list nav__list collapsible__content">
 				<li class="nav__item"><a href="#">Hosting</a></li>
 				<li class="nav__item"><a href="#">VPS</a></li>
@@ -41,42 +40,45 @@
 			</ul>
 		</nav>
 	</header>
+	<!-- End navbar -->
 	<!-- Start Hero Block -->
-	<!-- Note the order of classed: more generic class, the specialized class to overwrite the rule-->
+	<!-- 
+  1. note the order of classes: generic class -> specialized class to overwrite the rule
+  2. block(extend background) > container(constrain the content) pattern
+-->
 	<section class="block block--dark block--skewed-left block-hero">
 		<div class="container grid grid--1x2">
 			<header class="block__header block-hero__content">
-				<h1 class="block__heading" data-aos="zoom-in-up">
-					HERO - Cloud Hosting for Pros
-				</h1>
+				<h1 class="block__heading">Cloud Hosting for Pros</h1>
 				<p class="block-hero__tagline">
 					Deploy your websites in less than 60 seconds.
 				</p>
-				<a href="" class="btn btn--accent btn-strteched">Get started</a>
+				<a href="#" class="btn btn--accent btn-strteched">Get started</a>
 			</header>
-			<picture data-aos="zoom-in">
+			<!-- The <picture> can have multiple <source>-->
+			<picture>
 				<source type="image/webp" srcset="images/banner.webp 1x, images/banner@2x.webp 2x" />
 				<source type="image/png" srcset="images/banner.png 1x, images/banner@2x.png 2x" />
-				<!-- Always hav img element, otherwise the image will not show -->
+				<!-- <picture> should have always provide <img> element, otherwise the image will not show -->
 				<img class="block-hero__image" src="images/banner.png" alt="" />
 			</picture>
 		</div>
 	</section>
 	<!-- End Hero Block -->
 	<!-- Start Domain Block -->
-	<section class="block container block-domain" data-aos="zoom-in-up">
+	<section class="block container block-domain">
 		<header class="block__header">
-			<h2>DOMAIN - Starting at %9 per month</h2>
+			<h2>Starting at %9 per month</h2>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
-				ipsa.
+				Let's learn about webpack, live-reloading, Hot Module Replacement,
+				creating NPM scripts and more.
 			</p>
 		</header>
 		<div class="input-group">
 			<input type="text" class="input" placeholder="Enter block-domain name here..." />
 			<button class="btn btn--accent">
 				<svg class="icon icon--white">
-					<use xlink:href="images/sprite.svg#search"></use>
+					<use xlink:href="../images/sprite.svg#search"></use>
 				</svg>Search
 			</button>
 		</div>
@@ -84,14 +86,14 @@
 			<li><span class="badge badge--secondary">.com $9</span></li>
 			<li>.sg $10</li>
 			<li>.space $11</li>
-			<li>.info $14</li>
+			<li>.info $148</li>
 			<li>.net $10</li>
 			<li>.xyz $10</li>
 		</ul>
 	</section>
 	<!-- End Domain Block -->
 	<!-- Start Plan BLock -->
-	<section class="block container block-plans" data-aos="fade-up">
+	<section class="block container block-plans">
 		<div class="grid grid--1x3">
 			<div class="plan">
 				<div class="card card--secondary">
@@ -159,83 +161,73 @@
 	<!-- Start Feature Block -->
 	<section class="block container">
 		<header class="block__header">
-			<h2>FEATURE - Host on the Cloud to Keep Growing</h2>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis,
-				amet.
-			</p>
+			<h2>Host on the Cloud to Keep Growing</h2>
+			<p>15 CSS3 Best practices of for beginners to pro.</p>
 		</header>
-		<article class="grid grid--1x2 feature">
-			<div class="feature__content" data-aos="fade-right">
+		<!-- <article> is an independent sel-container element -->
+		<article class="grid grid--1x2 block-feature">
+			<div class="block-feature__content">
 				<svg class="icon icon--primary">
 					<use xlink:href="images/sprite.svg#easy"></use>
 				</svg>
-				<h3 class="feature__heading">Super Easy to Use</h3>
+				<h3 class="block-feature__heading">Super Easy to Use</h3>
+				<h4>01. Don't put everything in to one CSS file</h4>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-					reiciendis placeat quos nihil perspiciatis laborum.
+					Case-01: One large CSS file leads to fewer HTTP requests,
+					which can improve performance.
+				</p>
+				<p>
+					Case-02: Several smaller file leads to easier organization
+					which will make development and maintenance cheaper and easier.
 				</p>
 				<a href="#" class="link-arrow">Learn More</a>
 			</div>
-			<picture data-aos="zoom-in-left">
-				<source srcset="images/easy.webp 1x, images/easy@2x.webp 2x" type="image/webp" />
-				<source srcset="images/easy.jpg 1x, images/easy@2x.jpg 2x" type="image/jpg" />
-				<img class="feature__image" src="images/easy@2x.jpg" alt="" />
+			<picture>
+				<source srcset="images/easy.webp 1x, images/easy@2x.webp 2x" type="image/webp">
+				<source srcset="images/easy.jpg 1x, images/easy@2x.jpg 2x" type="image/jpg">
+				<img class="block-feature__image" src="images/easy@2x.jpg" alt="">
 			</picture>
 		</article>
-		<article class="grid grid--1x2 feature">
-			<div class="feature__content" data-aos="fade-up">
+
+		<article class="grid grid--1x2 block-feature">
+			<div class="block-feature__content">
 				<svg class="icon icon--primary">
 					<use xlink:href="images/sprite.svg#computer"></use>
 				</svg>
-				<h3 class="feature__heading">Simple Fast Websites</h3>
+				<h3 class="block-feature__heading">Simple Fast Websites</h3>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-					reiciendis placeat quos nihil perspiciatis laborum.
+					Now what should our strategy for both scenarios? That’s a million
+					dollars question. Okay let me clear your confusion; we can follow
+					the win-win rules.
+				</p>
+				<p>
+					“We could use multiple style sheets to keep things better
+					organized, and then compress them into one file before putting
+					them on the site, to improve performance.”
 				</p>
 				<a href="#" class="link-arrow">Learn More</a>
 			</div>
 			<picture>
-				<source srcset="images/fast.webp 1x, images/fast@2x.webp 2x" type="image/webp" />
-				<source srcset="images/fast.jpg 1x, images/fast@2x.jpg 2x" type="image/jpg" />
-				<img class="feature__image" src="images/fast@2x.jpg" alt="" />
+				<source srcset="images/fast.webp 1x, images/fast@2x.webp 2x" type="image/webp">
+				<source srcset="images/fast.jpg 1x, images/fast@2x.jpg 2x" type="image/jpg">
+				<img class="block-feature__image" src="images/fast@2x.jpg" alt="">
 			</picture>
 		</article>
-		<article class="grid grid--1x2 feature">
-			<div class="feature__content" data-aos="fade-up">
+		<article class="grid grid--1x2 block-feature">
+			<div class="block-feature__content">
 				<svg class="icon icon--primary">
 					<use xlink:href="images/sprite.svg#wordpress"></use>
 				</svg>
-				<h3 class="feature__heading">Wordpress Made Easy</h3>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam.
-				</p>
+				<h3 class="block-feature__heading">Wordpress Made Easy</h3>
+				<p>CSS guy is an artist, as an artist you should have some unique working strategy that’s make your action while
+					working more enjoyable and fun. Here is some tips I share, you could follow and write your style as pro. Wow!
+					let’s get started:</p>
 				<a href="#" class="link-arrow">Learn More</a>
 			</div>
 			<picture>
-				<source srcset="images/wordpress.webp 1x, images/wordpress@2x.webp 2x" type="image/webp" />
-				<source srcset="images/wordpress.jpg 1x, images/wordpress@2x.jpg 2x" type="image/jpg" />
-				<img class="feature__image" src="images/wordpress@2x.jpg" alt="" />
-			</picture>
-		</article>
-		<article class="grid grid--1x2 feature">
-			<div class="feature__content" data-aos="fade-left">
-				<span class="icon-container">
-					<svg class="icon icon--primary">
-						<use href="images/sprite.svg#clock"></use>
-					</svg>
-				</span>
-				<h3 class="feature__heading">24/7 Expert Support</h3>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-					obcaecati vel ad unde est illo at. Labore excepturi officia dolores!
-				</p>
-				<a href="https://codewithmosh.com" target="_blank" class="link-arrow">Learn More</a>
-			</div>
-			<picture data-aos="fade-right">
-				<source type="image/webp" srcset="images/support.webp 1x, images/support@2x.webp 2x" />
-				<source type="image/jpg" srcset="images/support.jpg 1x, images/support@2x.jpg 2x" />
-				<img class="feature__image" src="images/support@2x.jpg" alt="" />
+				<source srcset="images/wordpress.webp 1x, images/wordpress@2x.webp 2x" type="image/webp">
+				<source srcset="images/wordpress.jpg 1x, images/wordpress@2x.jpg 2x" type="image/jpg">
+				<img class="block-feature__image" src="images/wordpress@2x.jpg" alt="">
 			</picture>
 		</article>
 	</section>
@@ -243,15 +235,18 @@
 	<!-- Start Showcase Block -->
 	<section class="block block--dark block--skewed-right block-showcase">
 		<header class="block__header">
-			<h2>SHOWCASE - User-friendly Control Panel</h2>
+			<h2>User-friendly Control Panel</h2>
 		</header>
 		<div class="container grid grid--1x2">
-			<picture class="block-showcase__image" data-aos="fade-right">
-				<source srcset="images/ipad.webp 1x, images/ipad@2x.webp 2x" type="image/webp" />
-				<source srcset="images/ipad.png 1x, images/ipad@2x.png 2x" type="image/png" />
-				<img src="images/ipad.png" alt="" />
+			<!-- 
+				The wider is screen, the more the image is visible,
+				this is the trick part of this block -->
+			<picture class="block-showcase__image">
+				<source srcset="images/ipad.webp 1x, images/ipad.webp@2x 2x" type="image/webp">
+				<source srcset="images/ipad.png 1x, images/ipad.png@2x 2x" type="image/png">
+				<img src="images/ipad.png" alt="">
 			</picture>
-			<ul class="list" data-aos="fade-up">
+			<ul class="list">
 				<li>
 					<div class="media">
 						<div class="media__image">
@@ -262,9 +257,9 @@
 						<div class="media__body">
 							<h3 class="media__title">Easy Start & Managed Updates</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Veniam quisquam, ex nostrum vero voluptates dicta excepturi
-								vel perspiciatis consequuntur ab.
+								Media query is used to add different styles according to the screen size or orientation or resolution.
+								you
+								can even change styles of your site if it is being print or if user is using screen reader.
 							</p>
 						</div>
 					</div>
@@ -279,9 +274,9 @@
 						<div class="media__body">
 							<h3 class="media__title">Staging, GIT & WP-CLI</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Veniam quisquam, ex nostrum vero voluptates dicta excepturi
-								vel perspiciatis consequuntur ab.
+								Media query are the most important concept of CSS now days. As majority of users use their phone or
+								tablet
+								to visit websites. It is important these days to make website responsive.
 							</p>
 						</div>
 					</div>
@@ -296,9 +291,9 @@
 						<div class="media__body">
 							<h3 class="media__title">Dynamic Caching & More</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Veniam quisquam, ex nostrum vero voluptates dicta excepturi
-								vel perspiciatis consequuntur ab.
+								Let’s work in CSS pixel values and use SCSS for speed and convenience. So, if we are to target the title
+								of one
+								of these card widgets, our SCSS might look something like this:
 							</p>
 						</div>
 					</div>
@@ -306,20 +301,17 @@
 			</ul>
 		</div>
 	</section>
-	<!-- End Showcase Block -->
 	<!-- Start Testimonial Block -->
-	<section class="block" data-aos="zoom-in">
+	<section class="block">
 		<header class="block__header">
-			<h2>TESTIMONIAL - What our Customers are Saying</h2>
-			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, fuga!
-			</p>
+			<h2>What our Customers are Saying</h2>
+			<p>Records and Sets: Selecting the Ideal Data Structure</p>
 		</header>
 		<div class="container">
-			<div class="card testimonial">
+			<div class="card block-testimonial">
 				<div class="grid grid--1x2">
-					<div class="testimonial__image">
-						<img src="images/testimonial.jpg" alt="Happy, Smiling" />
+					<div class="block-testimonial__image">
+						<img src="images/testimonial.jpg" alt="A happy, smiling" />
 						<span class="icon-container icon-container--accent">
 							<svg class="icon icon--white icon--small">
 								<use xlink:href="images/sprite.svg#quotes"></use>
@@ -328,9 +320,11 @@
 					</div>
 					<blockquote class="quote">
 						<p class="quote__text">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Incidunt nemo aperiam a debitis mollitia magnam ad deserunt
-							optio corporis ea.
+							The term “knowledge base” usually attributes to the information stored in a system. Generally, knowledge
+							bases
+							are used to basically store any information in a container, formerly, in a form of a database. With the
+							new
+							advances in technology, this idea has changed in many ways.
 						</p>
 						<footer>
 							<div class="media">
@@ -340,7 +334,7 @@
 									</svg>
 								</div>
 								<div class="media__body">
-									<h3 class="media__title quote__author">John Dow</h3>
+									<h3 class="media__title quote__author">John Doe</h3>
 									<p class="quote__organization">ABC Company</p>
 								</div>
 							</div>
@@ -349,18 +343,33 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="container">
+			<div class="callout callout--primary">
+				<div class="grid grid--1x2">
+					<div class="callout__content">
+						<h2 class="callout__heading">Ready to Get Start</h2>
+						<p>
+							In this tutorial, we will outline different approaches to building a custom component library.
+						</p>
+					</div>
+					<a href="#" class="btn btn--secondary btn--stretched">Get Started</a>
+				</div>
+			</div>
+		</div>
+
 	</section>
 	<!-- End Testimonial Block -->
 	<!-- Start Footer Block-->
-	<footer class="block block--dark footer">
-		<div class="container grid footer__sections">
-			<section class="collapsible collapsible--expanded footer__section">
-				<div class="collapsible__header">
-					<h2 class="collapsible__heading footer__heading">Products</h2>
+	<footer class="block block--dark block-footer">
+		<div class="container grid block-footer__sections">
+			<section class="collapsible collapsible--expanded block-footer__section">
+				<header class="collapsible__header">
+					<h2 class="collapsible__heading block-footer__heading">Products</h2>
 					<svg class="icon icon--white collapsible__toggler">
-						<use xlink:href="images/sprite.svg#toggler"></use>
+						<use xlink:href="images/sprite.svg#chevron"></use>
 					</svg>
-				</div>
+				</header>
 				<div class="collapsible__content">
 					<ul class="list">
 						<li><a href="#">Website Hosting</a></li>
@@ -369,13 +378,13 @@
 					</ul>
 				</div>
 			</section>
-			<section class="collapsible footer__section">
-				<div class="collapsible__header">
-					<h2 class="collapsible__heading footer__heading">Company</h2>
+			<section class="collapsible block-footer__section">
+				<header class="collapsible__header">
+					<h2 class="collapsible__heading block-footer__heading">Company</h2>
 					<svg class="icon icon--white collapsible__toggler">
-						<use xlink:href="images/sprite.svg#toggler"></use>
+						<use xlink:href="images/sprite.svg#chevron"></use>
 					</svg>
-				</div>
+				</header>
 				<div class="collapsible__content">
 					<ul class="list">
 						<li><a href="#">About</a></li>
@@ -384,13 +393,13 @@
 					</ul>
 				</div>
 			</section>
-			<section class="collapsible footer__section">
-				<div class="collapsible__header">
-					<h2 class="collapsible__heading footer__heading">Support</h2>
+			<section class="collapsible block-footer__section">
+				<header class="collapsible__header">
+					<h2 class="collapsible__heading block-footer__heading">Support</h2>
 					<svg class="icon icon--white collapsible__toggler">
-						<use xlink:href="images/sprite.svg#toggler"></use>
+						<use xlink:href="images/sprite.svg#chevron"></use>
 					</svg>
-				</div>
+				</header>
 				<div class="collapsible__content">
 					<ul class="list">
 						<li><a href="#">Contact</a></li>
@@ -399,13 +408,13 @@
 					</ul>
 				</div>
 			</section>
-			<section class="collapsible footer__section">
-				<div class="collapsible__header">
-					<h2 class="collapsible__heading footer__heading">Domains</h2>
+			<section class="collapsible block-footer__section">
+				<header class="collapsible__header">
+					<h2 class="collapsible__heading block-footer__heading">Domains</h2>
 					<svg class="icon icon--white collapsible__toggler">
-						<use xlink:href="images/sprite.svg#toggler"></use>
+						<use xlink:href="images/sprite.svg#chevron"></use>
 					</svg>
-				</div>
+				</header>
 				<div class="collapsible__content">
 					<ul class="list">
 						<li><a href="#">Domain Checker</a></li>
@@ -414,10 +423,10 @@
 					</ul>
 				</div>
 			</section>
-			<div class="footer__brand">
+			<section class="block-footer__brand">
 				<img src="images/logo.svg" alt="" />
-				<p class="footer__copyright">Copyright 2020 Mosh Hamedani</p>
-			</div>
+				<p class="block-footer__copyright">Copyright 2020 Mosh Hamadan</p>
+			</section>
 		</div>
 	</footer>
 	<!-- End Footer Block-->

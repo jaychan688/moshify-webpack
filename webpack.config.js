@@ -15,10 +15,10 @@ const cssConfig = {
 
 const pages = fse
 	.readdirSync('./src')
-	.filter(file => {
+	.filter((file) => {
 		return file.endsWith('.html')
 	})
-	.map(page => {
+	.map((page) => {
 		return new HtmlWebpackPlugin({
 			filename: page,
 			template: `./src/${page}`,
@@ -67,7 +67,7 @@ if (currentTask === 'development') {
 		contentBase: path.join(__dirname, 'dist'),
 		hot: true,
 		open: true,
-		port: 3000,
+		port: 80,
 		historyApiFallback: true,
 		host: '0.0.0.0',
 	}
