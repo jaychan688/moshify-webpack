@@ -17,9 +17,7 @@
 		@mixin md {
 			/* change the <li> default behavior, lay all .nav_item horizontally */
 			display: flex;
-			/* 
-				Medium screen: the.nav_list show always show, tricks from collapsible__content 
-			*/
+			/* Medium screen: the.nav_list show always show, tricks from collapsible__content */
 			max-height: 100%;
 			/* width: auto, stretch enough to fits it's content */
 			width: auto;
@@ -31,6 +29,7 @@
 	&__brand {
 		/* Move the logo 5px down, make it looks like center vertically */
 		transform: translateY(5px);
+		width: 150px;
 	}
 
 	&__item {
@@ -38,8 +37,11 @@
 		border-bottom: 1px solid #222222;
 
 		@mixin md {
-			/* In medium screen, set the border to 0 */
-			border: 0;
+			border: 0; /* In medium screen, set the border to 0 */
+		}
+
+		&:last-of-type {
+			border-bottom: none;
 		}
 
 		& > a {

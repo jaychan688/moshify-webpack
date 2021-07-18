@@ -3,23 +3,25 @@
 .block-testimonial {
 	padding: 3rem;
 
-	@mixin md {
-		.quote,
-		.quote__author {
-			font-size: 2.4rem;
-		}
+	.quote {
+		margin: 2rem 0;
+		font-size: 110%;
 
-		.quote {
-			margin-left: 6rem;
+		@mixin md {
+			margin: 5rem 0 0 6rem;
+			font-size: 120%;
+			line-height: 1.5;
 		}
-	}
-
-	.card {
-		overflow: inherit;
 	}
 
 	&__image {
 		position: relative;
+		margin: 0 3rem;
+
+		@mixin md {
+			margin: 0;
+		}
+
 		/* Exceptional case direct child selector: 
 		because the structure of this container unlikely to  change */
 		& > img {

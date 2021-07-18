@@ -18,9 +18,6 @@
 	<link rel="apple-touch-icon" sizes="144x144" href="images/favicon-lg.png" />
 	<!-- CSS -->
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-	<!-- <link rel="stylesheet" href="css/style.css" /> -->
-	<!-- JS -->
-	<!-- <script src="js/main.js" defer></script> -->
 	<title>Moshify Clone</title>
 </head>
 
@@ -49,15 +46,15 @@
 	<section class="block block--dark block--skewed-left block-hero">
 		<div class="container grid grid--1x2">
 			<header class="block__header block-hero__content">
-				<h1 class="block__heading">Cloud Hosting for Pros</h1>
+				<h1 class="block__heading" data-aos="zoom-in-up">Cloud Hosting for Pros</h1>
 				<p class="block-hero__tagline">
 					Deploy your websites in less than 60 seconds.
 				</p>
 				<a href="#" class="btn btn--accent btn-strteched">Get started</a>
 			</header>
 			<!-- The <picture> can have multiple <source>-->
-			<picture>
-				<source type="image/webp" srcset="images/banner.webp 1x, images/banner@2x.webp 2x" />
+			<picture data-aos="zoom-in">
+				<source type=" image/webp" srcset="images/banner.webp 1x, images/banner@2x.webp 2x" />
 				<source type="image/png" srcset="images/banner.png 1x, images/banner@2x.png 2x" />
 				<!-- <picture> should have always provide <img> element, otherwise the image will not show -->
 				<img class="block-hero__image" src="images/banner.png" alt="" />
@@ -66,7 +63,7 @@
 	</section>
 	<!-- End Hero Block -->
 	<!-- Start Domain Block -->
-	<section class="block container block-domain">
+	<section class=" block container block-domain" data-aos="zoom-in-up">
 		<header class="block__header">
 			<h2>Starting at %9 per month</h2>
 			<p>
@@ -93,7 +90,7 @@
 	</section>
 	<!-- End Domain Block -->
 	<!-- Start Plan BLock -->
-	<section class="block container block-plans">
+	<section class=" block container block-plans" data-aos="fade-up">
 		<div class="grid grid--1x3">
 			<div class="plan">
 				<div class="card card--secondary">
@@ -166,7 +163,7 @@
 		</header>
 		<!-- <article> is an independent sel-container element -->
 		<article class="grid grid--1x2 block-feature">
-			<div class="block-feature__content">
+			<div class="block-feature__content" data-aos="fade-right">
 				<svg class="icon icon--primary">
 					<use xlink:href="images/sprite.svg#easy"></use>
 				</svg>
@@ -182,7 +179,7 @@
 				</p>
 				<a href="#" class="link-arrow">Learn More</a>
 			</div>
-			<picture>
+			<picture data-aos="zoom-in-left">
 				<source srcset="images/easy.webp 1x, images/easy@2x.webp 2x" type="image/webp">
 				<source srcset="images/easy.jpg 1x, images/easy@2x.jpg 2x" type="image/jpg">
 				<img class="block-feature__image" src="images/easy@2x.jpg" alt="">
@@ -190,7 +187,7 @@
 		</article>
 
 		<article class="grid grid--1x2 block-feature">
-			<div class="block-feature__content">
+			<div class="block-feature__content" data-aos="fade-up">
 				<svg class="icon icon--primary">
 					<use xlink:href="images/sprite.svg#computer"></use>
 				</svg>
@@ -214,7 +211,7 @@
 			</picture>
 		</article>
 		<article class="grid grid--1x2 block-feature">
-			<div class="block-feature__content">
+			<div class="block-feature__content" data-aos="fade-up">
 				<svg class="icon icon--primary">
 					<use xlink:href="images/sprite.svg#wordpress"></use>
 				</svg>
@@ -230,6 +227,27 @@
 				<img class="block-feature__image" src="images/wordpress@2x.jpg" alt="">
 			</picture>
 		</article>
+		<article class="grid grid--1x2 feature">
+			<div class="feature__content" data-aos="fade-left">
+				<span class="icon-container">
+					<svg class="icon icon--primary">
+						<use href="images/sprite.svg#clock"></use>
+					</svg>
+				</span>
+				<h3 class="feature__heading">24/7 Expert Support</h3>
+				<p>
+					React component libraries are becoming increasingly popular, and for good reason. They are great tools that
+					guarantee consistency and reusability of UI elements both within and across digital products, all while having
+					the potential to significantly reduce development time and effort.
+				</p>
+				<a href="https://codewithmosh.com" target="_blank" class="link-arrow">Learn More</a>
+			</div>
+			<picture data-aos="fade-right">
+				<source type="image/webp" srcset="images/support.webp 1x, images/support@2x.webp 2x" />
+				<source type="image/jpg" srcset="images/support.jpg 1x, images/support@2x.jpg 2x" />
+				<img class="feature__image" src="images/support@2x.jpg" alt="" />
+			</picture>
+		</article>
 	</section>
 	<!-- End Feature Block -->
 	<!-- Start Showcase Block -->
@@ -241,12 +259,12 @@
 			<!-- 
 				The wider is screen, the more the image is visible,
 				this is the trick part of this block -->
-			<picture class="block-showcase__image">
+			<picture class="block-showcase__image" data-aos="fade-right">
 				<source srcset="images/ipad.webp 1x, images/ipad.webp@2x 2x" type="image/webp">
 				<source srcset="images/ipad.png 1x, images/ipad.png@2x 2x" type="image/png">
 				<img src="images/ipad.png" alt="">
 			</picture>
-			<ul class="list">
+			<ul class="list" data-aos="fade-up">
 				<li>
 					<div class="media">
 						<div class="media__image">
@@ -302,7 +320,7 @@
 		</div>
 	</section>
 	<!-- Start Testimonial Block -->
-	<section class="block">
+	<section class="block" data-aos="zoom-in">
 		<header class="block__header">
 			<h2>What our Customers are Saying</h2>
 			<p>Records and Sets: Selecting the Ideal Data Structure</p>
@@ -343,22 +361,22 @@
 				</div>
 			</div>
 		</div>
+	</section>
 
-		<div class="container">
-			<div class="callout callout--primary">
-				<div class="grid grid--1x2">
-					<div class="callout__content">
-						<h2 class="callout__heading">Ready to Get Start</h2>
-						<p>
-							In this tutorial, we will outline different approaches to building a custom component library.
-						</p>
-					</div>
-					<a href="#" class="btn btn--secondary btn--stretched">Get Started</a>
+	<div class="container">
+		<div class="callout callout--primary callout-signup">
+			<div class="grid grid--1x2">
+				<div class="callout__content">
+					<h2 class="callout__heading">Ready to Get Start</h2>
+					<p>
+						In this tutorial, we will outline different approaches to building a custom component library.
+					</p>
 				</div>
+				<a href="#" class="btn btn--secondary btn--stretched">Get Started</a>
 			</div>
 		</div>
+	</div>
 
-	</section>
 	<!-- End Testimonial Block -->
 	<!-- Start Footer Block-->
 	<footer class="block block--dark block-footer">
@@ -430,10 +448,6 @@
 		</div>
 	</footer>
 	<!-- End Footer Block-->
-	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-	<script>
-		AOS.init()
-	</script>
 </body>
 
 </html>

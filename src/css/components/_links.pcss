@@ -6,16 +6,16 @@ a {
 .link-arrow {
 	color: var(--color-accent);
 	text-transform: uppercase;
-	font-weight: bold;
 	font-size: 2rem;
+	font-weight: bold;
 
 	@mixin lg {
 		font-size: 1.5rem;
 	}
 
 	&::after {
-		margin-left: 5px;
 		content: '-->';
+		margin-left: 5px;
 		transition: margin 0.15s;
 	}
 
