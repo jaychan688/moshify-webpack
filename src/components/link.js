@@ -1,1 +1,1 @@
-import './link.pcss'
+import './link.css'

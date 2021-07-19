@@ -1,2 +1,2 @@
-import './block-footer.pcss'
+import './block-footer.css'
 import '../js/main'

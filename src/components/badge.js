@@ -1,1 +1,1 @@
-import './badge.pcss'
+import './badge.css'

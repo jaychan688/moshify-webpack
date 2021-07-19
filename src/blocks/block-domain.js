@@ -1,4 +1,4 @@
-import './block-domain.pcss'
+import './block-domain.css'
 
 if (module.hot) {
 	module.hot.accept()

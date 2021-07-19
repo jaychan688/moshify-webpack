@@ -1,1 +1,1 @@
-import './block-plan.pcss'
+import './block-plan.css'

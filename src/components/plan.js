@@ -1,1 +1,1 @@
-import './plan.pcss'
+import './plan.css'

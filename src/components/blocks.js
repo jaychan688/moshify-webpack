@@ -1,1 +1,1 @@
-import './blocks.pcss'
+import './blocks.css'

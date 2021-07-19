@@ -66,8 +66,7 @@ if (currentTask === 'development') {
 		},
 		contentBase: path.join(__dirname, 'dist'),
 		hot: true,
-		open: true,
-		port: 80,
+		port: 3000,
 		historyApiFallback: true,
 		host: '0.0.0.0',
 	}

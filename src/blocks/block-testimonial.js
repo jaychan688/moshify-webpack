@@ -1,1 +1,1 @@
-import './block-testimonial.pcss'
+import './block-testimonial.css'

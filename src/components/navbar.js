@@ -1,2 +1,2 @@
-import './navbar.pcss'
+import './navbar.css'
 import '../js/main'

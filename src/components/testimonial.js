@@ -1,1 +1,1 @@
-import './testimonial.pcss'
+import './testimonial.css'

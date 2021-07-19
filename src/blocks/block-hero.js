@@ -1,1 +1,1 @@
-import './block-hero.pcss'
+import './block-hero.css'

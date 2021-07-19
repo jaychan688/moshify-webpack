@@ -1,1 +1,1 @@
-import './icon.pcss'
+import './icon.css'

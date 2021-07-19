@@ -1,0 +1,12 @@
+@import '../css/settings/_mixins.css';
+@import '../css/settings/_global.css';
+
+@import '../css/components/_block.css';
+@import '../css/components/_grid.css';
+@import '../css/components/_plan.css';
+@import '../css/components/_card.css';
+@import '../css/components/_badges.css';
+@import '../css/components/_lists.css';
+@import '../css/components/_btn.css';
+
+@import '../css/blocks/_block-plan.css';

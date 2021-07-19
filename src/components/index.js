@@ -1,4 +1,4 @@
-import './index.pcss'
+import './index.css'
 
 const blocks = [
 	'block-hero',

@@ -1,1 +1,1 @@
-import './block-showcase.pcss'
+import './block-showcase.css'

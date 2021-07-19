@@ -1,2 +1,2 @@
-import './collapsible.pcss'
+import './collapsible.css'
 import '../js/main'

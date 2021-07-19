@@ -1,1 +1,1 @@
-import './media.pcss'
+import './media.css'
