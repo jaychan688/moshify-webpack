@@ -1,5 +1,5 @@
 const currentTask = process.env.NODE_ENV || 'development'
-
+// plugins 的順序很重要，
 const config = {
 	plugins: [
 		require('postcss-import'),
