@@ -19,7 +19,7 @@ const cssConfig = {
 }
 
 // Return an Array including the file name of html
-const blocks = fse.readdirSync('./src/blocks').filter((file) => {
+const blocks = fse.readdirSync('./src/blocks').filter(file => {
 	return file.endsWith('.html')
 })
 // entries object: key value pair
@@ -29,7 +29,7 @@ const blockEntries = blocks.reduce((entry, page) => {
 	return entry
 }, {})
 // An array of HtmlWebpackPlugin
-const blockPages = blocks.map((page) => {
+const blockPages = blocks.map(page => {
 	return new HtmlWebpackPlugin({
 		inject: true,
 		filename: page,
@@ -39,7 +39,7 @@ const blockPages = blocks.map((page) => {
 	})
 })
 
-const components = fse.readdirSync('./src/components').filter((file) => {
+const components = fse.readdirSync('./src/components').filter(file => {
 	return file.endsWith('.html')
 })
 
@@ -49,7 +49,7 @@ const entries = components.reduce((entry, page) => {
 	return entry
 }, {})
 
-const pages = components.map((page) => {
+const pages = components.map(page => {
 	return new HtmlWebpackPlugin({
 		inject: true,
 		filename: page,
@@ -106,7 +106,6 @@ if (currentTask === 'development') {
 		},
 		contentBase: path.join(__dirname, 'public'),
 		hot: true,
-		open: true,
 		port: 3000,
 		historyApiFallback: true,
 		host: '0.0.0.0',

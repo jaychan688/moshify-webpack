@@ -55,11 +55,12 @@
 
 	&--primary {
 		background-color: var(--color-primary);
-		color: #ffffff;
+		/* color: #ffffff; */
+		color: $varColor;
 	}
 
 	&--primary:hover {
-		/* background-color: #3a8ffd; */
+		background-color: #3a8ffd;
 		background: color(var(--color-primary) tint(20%));
 	}
 

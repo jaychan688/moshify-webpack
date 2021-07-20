@@ -15,7 +15,7 @@ const components = [
 	'badge',
 	'lists',
 	'icon',
-	'btn',
+	'button',
 	'input',
 	'card',
 	'plan',
@@ -31,14 +31,14 @@ const components = [
 
 const blocksLinks = blocks
 	.map(
-		(blocks) =>
+		blocks =>
 			`<li><a class="list__item" target="_blank" href="${blocks}.html">${blocks}</a></li>`
 	)
 	.join('')
 
 const componentsLinks = components
 	.map(
-		(components) =>
+		components =>
 			`<li><a class="list__item" target="_blank" href="${components}.html">${components}</a></li>`
 	)
 	.join('')
