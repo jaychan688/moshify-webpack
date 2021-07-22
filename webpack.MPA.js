@@ -28,10 +28,12 @@ const blockEntries = blocks.reduce((entry, page) => {
 	entry[filename] = `./src/blocks/${filename}.js`
 	return entry
 }, {})
+
 // An array of HtmlWebpackPlugin
 const blockPages = blocks.map(page => {
 	return new HtmlWebpackPlugin({
 		inject: true,
+		minify: false,
 		filename: page,
 		template: `./src/blocks/${page}`,
 		// entry 要搭配  chunks
@@ -138,7 +140,7 @@ if (currentTask === 'production') {
 
 	config.plugins.push(
 		new CleanWebpackPlugin(),
-		new MiniCssExtractPlugin({ filename: 'style.[chunkhash].css' }),
+		new MiniCssExtractPlugin({ filename: '[name].[chunkhash].css' }),
 		new RunAfterCompile()
 	)
 }
