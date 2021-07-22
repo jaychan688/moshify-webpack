@@ -3,68 +3,70 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // Extracts CSS into separate files.
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-//  Plugin that simplifies creation of HTML files to serve your bundles
+//  Simplifies creation of HTML files to serve your bundles
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // Replacement for native fs
 const fse = require('fs-extra')
 
-const currentTask = process.env.NODE_ENV || 'development'
-// DevServer bug: Temporary workaround for 'browserslist', that is bing patched in near futtue
-const target = process.env.NODE_ENV === 'product' ? 'browserslist' : 'web'
+const isProduction = process.env.NODE_ENV || false
+// DevServer bug: Temporary workaround for 'browserslist'
+// that is bing patched in near futtue
+const target = isProduction ? 'browserslist' : 'web'
+const devtool = isProduction ? false : 'source-map'
+const mode = isProduction || 'development'
 
 /*********** COMMON  ************/
 const cssConfig = {
-	test: /\.(s[ac]|pc|c)ss$/i,
+	test: /\.css$/i,
 	use: ['css-loader', 'postcss-loader'],
 }
 
+const generateEntries = (pageArray, folder) => {
+	return pageArray.reduce((entry, page) => {
+		let filename = page.slice(0, page.indexOf('.'))
+
+		entry[filename] = `./src/${folder}/${filename}.js`
+		return entry
+	}, {})
+}
+
+const generateHtmlPlugin = (page, folder) => {
+	// Factory pattern
+	return new HtmlWebpackPlugin({
+		template: `./src/${folder}/${page}`,
+		filename: page,
+		// minify: false,
+		inject: true,
+		chunks: [page.slice(0, page.indexOf('.'))],
+	})
+}
+
+const populateHtmlPlugins = (pageArray, folder) => {
+	return pageArray.map(page => generateHtmlPlugin(page, folder))
+}
+
 // Return an Array including the file name of html
-const blocks = fse.readdirSync('./src/blocks').filter(file => {
+const blockHtml = fse.readdirSync('./src/blocks').filter(file => {
 	return file.endsWith('.html')
 })
-// entries object: key value pair
-const blockEntries = blocks.reduce((entry, page) => {
-	let filename = page.slice(0, page.indexOf('.'))
-	entry[filename] = `./src/blocks/${filename}.js`
-	return entry
-}, {})
+const componentHtml = fse.readdirSync('./src/components').filter(file => {
+	return file.endsWith('.html')
+})
+// An object of entry config
+const blockEntries = generateEntries(blockHtml, 'blocks')
+const componentEntries = generateEntries(componentHtml, 'components')
 
 // An array of HtmlWebpackPlugin
-const blockPages = blocks.map(page => {
-	return new HtmlWebpackPlugin({
-		inject: true,
-		minify: false,
-		filename: page,
-		template: `./src/blocks/${page}`,
-		// entry 要搭配  chunks
-		chunks: [page.slice(0, page.indexOf('.'))],
-	})
-})
-
-const components = fse.readdirSync('./src/components').filter(file => {
-	return file.endsWith('.html')
-})
-
-const entries = components.reduce((entry, page) => {
-	let filename = page.slice(0, page.indexOf('.'))
-	entry[filename] = `./src/components/${filename}.js`
-	return entry
-}, {})
-
-const pages = components.map(page => {
-	return new HtmlWebpackPlugin({
-		inject: true,
-		filename: page,
-		template: `./src/components/${page}`,
-		chunks: [page.slice(0, page.indexOf('.'))],
-	})
-})
+const blockPlugins = populateHtmlPlugins(blockHtml, 'blocks')
+const componentPlugins = populateHtmlPlugins(componentHtml, 'components')
 
 const config = {
-	entry: { ...blockEntries, ...entries },
+	entry: { ...blockEntries, ...componentEntries },
+	plugins: [...componentPlugins, ...blockPlugins],
 	// default to 'web', but add browserslist, live reload won't work,  so set to 'web' only required for web-dev-server bugs"
 	target,
-	mode: currentTask,
+	mode,
+	devtool,
 	module: {
 		rules: [
 			cssConfig,
@@ -86,11 +88,10 @@ const config = {
 			},
 		],
 	},
-	plugins: [...pages, ...blockPages],
 }
 
 /*********** DEVELOPMENT  ************/
-if (currentTask === 'development') {
+if (!isProduction) {
 	cssConfig.use.unshift('style-loader')
 
 	config.output = {
@@ -125,7 +126,7 @@ class RunAfterCompile {
 	}
 }
 
-if (currentTask === 'production') {
+if (isProduction) {
 	cssConfig.use.unshift(MiniCssExtractPlugin.loader)
 
 	config.output = {

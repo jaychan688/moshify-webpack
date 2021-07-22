@@ -5,20 +5,22 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const fse = require('fs-extra')
 
-const currentTask = process.env.NODE_ENV || 'development'
-const target = process.env.NODE_ENV === 'product' ? 'browserslist' : 'web'
+const isProduction = process.env.NODE_ENV || false
+const target = isProduction ? 'browserslist' : 'web'
+const devtool = isProduction ? false : 'source-map'
+const mode = isProduction || 'development'
 
 const cssConfig = {
-	test: /\.(pc|c)ss$/i,
+	test: /\.css$/i,
 	use: ['css-loader', 'postcss-loader'],
 }
 
 const pages = fse
 	.readdirSync('./src')
-	.filter((file) => {
+	.filter(file => {
 		return file.endsWith('.html')
 	})
-	.map((page) => {
+	.map(page => {
 		return new HtmlWebpackPlugin({
 			filename: page,
 			template: `./src/${page}`,
@@ -27,8 +29,9 @@ const pages = fse
 
 const config = {
 	entry: './src/js/index.js',
+	mode,
 	target,
-	mode: currentTask,
+	devtool,
 	module: {
 		rules: [
 			cssConfig,
@@ -52,7 +55,7 @@ const config = {
 
 /*********** DEVELOPMENT  ************/
 
-if (currentTask === 'development') {
+if (!isProduction) {
 	cssConfig.use.unshift('style-loader')
 
 	config.output = {
@@ -82,7 +85,7 @@ class RunAfterCompile {
 	}
 }
 
-if (currentTask === 'production') {
+if (isProduction) {
 	cssConfig.use.unshift(MiniCssExtractPlugin.loader)
 
 	config.output = {
