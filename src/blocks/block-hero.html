@@ -1,28 +1,37 @@
-<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>block-hero</title>
+</head>
+
+<body>
+	<!-- 
   1. note the order of classes: generic class -> specialized class to overwrite the rule
   2. block(extend background) > container(constrain the content) pattern
 -->
-<section class="block block--dark block--skewed-left block-hero">
-	<div class="container grid grid--1x2">
-		<header class="block__header block-hero__content">
-			<h1 class="block__heading">Cloud Hosting for Pros</h1>
-			<p class="block-hero__tagline">
-				Deploy your websites in less than 60 seconds.
-			</p>
-			<a href="#" class="btn btn--accent btn-strteched">Get started</a>
-		</header>
-		<!-- The <picture> can have multiple <source>-->
-		<picture>
-			<source
-				type="image/webp"
-				srcset="images/banner.webp 1x, images/banner@2x.webp 2x"
-			/>
-			<source
-				type="image/png"
-				srcset="images/banner.png 1x, images/banner@2x.png 2x"
-			/>
-			<!-- <picture> should have always provide <img> element, otherwise the image will not show -->
-			<img class="block-hero__image" src="images/banner.png" alt="" />
-		</picture>
-	</div>
-</section>
+	<section class="block block--dark block--skewed-left block-hero">
+		<div class="container grid grid--1x2">
+			<header class="block__header block-hero__content">
+				<h1 class="block__heading">Cloud Hosting for Pros</h1>
+				<p class="block-hero__tagline">
+					Deploy your websites in less than 60 seconds.
+				</p>
+				<a href="#" class="btn btn--accent btn-strteched">Get started</a>
+			</header>
+			<!-- The <picture> can have multiple <source>-->
+			<picture>
+				<source type="image/webp" srcset="images/banner.webp 1x, images/banner@2x.webp 2x" />
+				<source type="image/png" srcset="images/banner.png 1x, images/banner@2x.png 2x" />
+				<!-- <picture> should have always provide <img> element, otherwise the image will not show -->
+				<img class="block-hero__image" src="images/banner.png" alt="" />
+			</picture>
+		</div>
+	</section>
+
+</body>
+
+</html>

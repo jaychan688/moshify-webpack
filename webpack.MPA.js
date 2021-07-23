@@ -15,6 +15,14 @@ const target = isProduction ? 'browserslist' : 'web'
 const devtool = isProduction ? false : 'source-map'
 const mode = isProduction || 'development'
 
+class RunAfterCompile {
+	apply(compiler) {
+		compiler.hooks.done.tap('Copy images', () => {
+			fse.copySync('./src/images', './dist/images')
+		})
+	}
+}
+
 /*********** COMMON  ************/
 const cssConfig = {
 	test: /\.css$/i,
@@ -35,7 +43,7 @@ const generateHtmlPlugin = (page, folder) => {
 	return new HtmlWebpackPlugin({
 		template: `./src/${folder}/${page}`,
 		filename: page,
-		// minify: false,
+		minify: false,
 		inject: true,
 		chunks: [page.slice(0, page.indexOf('.'))],
 	})
@@ -49,6 +57,7 @@ const populateHtmlPlugins = (pageArray, folder) => {
 const blockHtml = fse.readdirSync('./src/blocks').filter(file => {
 	return file.endsWith('.html')
 })
+
 const componentHtml = fse.readdirSync('./src/components').filter(file => {
 	return file.endsWith('.html')
 })
@@ -62,7 +71,12 @@ const componentPlugins = populateHtmlPlugins(componentHtml, 'components')
 
 const config = {
 	entry: { ...blockEntries, ...componentEntries },
-	plugins: [...componentPlugins, ...blockPlugins],
+	plugins: [
+		new CleanWebpackPlugin(),
+		new RunAfterCompile(),
+		...componentPlugins,
+		...blockPlugins,
+	],
 	// default to 'web', but add browserslist, live reload won't work,  so set to 'web' only required for web-dev-server bugs"
 	target,
 	mode,
@@ -98,7 +112,7 @@ if (!isProduction) {
 		// multi-page seeting: [name] to output different js to match html.
 		filename: '[name].js',
 		// output the bundle.js to the public folder, must match devServer contentBase
-		path: path.resolve(__dirname, 'public'),
+		path: path.resolve(__dirname, 'dist'),
 	}
 
 	config.devServer = {
@@ -107,24 +121,16 @@ if (!isProduction) {
 			server._watch('./src/components/**/*.html')
 			server._watch('./src/blocks/**/*.html')
 		},
-		contentBase: path.join(__dirname, 'public'),
+		contentBase: path.join(__dirname, 'dist'),
 		hot: true,
 		port: 3000,
 		historyApiFallback: true,
 		host: '0.0.0.0',
 	}
-	config.devtool = 'source-map'
 }
 
 /*********** PRODUCTION  ************/
 // Copy images folder
-class RunAfterCompile {
-	apply(compiler) {
-		compiler.hooks.done.tap('Copy images', () => {
-			fse.copySync('./src/images', './dist/images')
-		})
-	}
-}
 
 if (isProduction) {
 	cssConfig.use.unshift(MiniCssExtractPlugin.loader)
@@ -140,9 +146,7 @@ if (isProduction) {
 	}
 
 	config.plugins.push(
-		new CleanWebpackPlugin(),
-		new MiniCssExtractPlugin({ filename: '[name].[chunkhash].css' }),
-		new RunAfterCompile()
+		new MiniCssExtractPlugin({ filename: '[name].[chunkhash].css' })
 	)
 }
 

@@ -1,68 +1,82 @@
-<section class="block block--dark block--skewed-right block-showcase">
-  <header class="block__header">
-    <h2>User-friendly Control Panel</h2>
-  </header>
-  <div class="container grid grid--1x2">
-    <!-- 
-      The wider is screen, the more the image is visible,
-      this is the trick part of this block -->
-    <picture class="block-showcase__image" data-aos="fade-right">
-      <source srcset="images/ipad.webp 1x, images/ipad.webp@2x 2x" type="image/webp">
-      <source srcset="images/ipad.png 1x, images/ipad.png@2x 2x" type="image/png">
-      <img src="images/ipad.png" alt="">
-    </picture>
-    <ul class="list" data-aos="fade-up">
-      <li>
-        <div class="media">
-          <div class="media__image">
-            <svg class="icon icon--primary">
-              <use xlink:href="images/sprite.svg#snap"></use>
-            </svg>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>block-showcase</title>
+</head>
+
+<body>
+  <section class="block block--dark block--skewed-right block-showcase">
+    <header class="block__header">
+      <h2>User-friendly Control Panel</h2>
+    </header>
+    <div class="container grid grid--1x2">
+      <!-- 
+        The wider is screen, the more the image is visible,
+        this is the trick part of this block -->
+      <picture class="block-showcase__image" data-aos="fade-right">
+        <source srcset="images/ipad.webp 1x, images/ipad.webp@2x 2x" type="image/webp">
+        <source srcset="images/ipad.png 1x, images/ipad.png@2x 2x" type="image/png">
+        <img src="images/ipad.png" alt="">
+      </picture>
+      <ul class="list" data-aos="fade-up">
+        <li>
+          <div class="media">
+            <div class="media__image">
+              <svg class="icon icon--primary">
+                <use xlink:href="images/sprite.svg#snap"></use>
+              </svg>
+            </div>
+            <div class="media__body">
+              <h3 class="media__title">Easy Start & Managed Updates</h3>
+              <p>
+                Media query is used to add different styles according to the screen size or orientation or resolution.
+                you
+                can even change styles of your site if it is being print or if user is using screen reader.
+              </p>
+            </div>
           </div>
-          <div class="media__body">
-            <h3 class="media__title">Easy Start & Managed Updates</h3>
-            <p>
-              Media query is used to add different styles according to the screen size or orientation or resolution.
-              you
-              can even change styles of your site if it is being print or if user is using screen reader.
-            </p>
+        </li>
+        <li>
+          <div class="media">
+            <div class="media__image">
+              <svg class="icon icon--primary">
+                <use xlink:href="images/sprite.svg#growth"></use>
+              </svg>
+            </div>
+            <div class="media__body">
+              <h3 class="media__title">Staging, GIT & WP-CLI</h3>
+              <p>
+                Media query are the most important concept of CSS now days. As majority of users use their phone or
+                tablet
+                to visit websites. It is important these days to make website responsive.
+              </p>
+            </div>
           </div>
-        </div>
-      </li>
-      <li>
-        <div class="media">
-          <div class="media__image">
-            <svg class="icon icon--primary">
-              <use xlink:href="images/sprite.svg#growth"></use>
-            </svg>
+        </li>
+        <li>
+          <div class="media">
+            <div class="media__image">
+              <svg class="icon icon--primary">
+                <use xlink:href="images/sprite.svg#wordpress"></use>
+              </svg>
+            </div>
+            <div class="media__body">
+              <h3 class="media__title">Dynamic Caching & More</h3>
+              <p>
+                Let’s work in CSS pixel values and use SCSS for speed and convenience. So, if we are to target the title
+                of one
+                of these card widgets, our SCSS might look something like this:
+              </p>
+            </div>
           </div>
-          <div class="media__body">
-            <h3 class="media__title">Staging, GIT & WP-CLI</h3>
-            <p>
-              Media query are the most important concept of CSS now days. As majority of users use their phone or
-              tablet
-              to visit websites. It is important these days to make website responsive.
-            </p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="media">
-          <div class="media__image">
-            <svg class="icon icon--primary">
-              <use xlink:href="images/sprite.svg#wordpress"></use>
-            </svg>
-          </div>
-          <div class="media__body">
-            <h3 class="media__title">Dynamic Caching & More</h3>
-            <p>
-              Let’s work in CSS pixel values and use SCSS for speed and convenience. So, if we are to target the title
-              of one
-              of these card widgets, our SCSS might look something like this:
-            </p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
+        </li>
+      </ul>
+    </div>
+  </section>
+</body>
+
+</html>

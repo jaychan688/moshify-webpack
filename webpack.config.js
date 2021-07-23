@@ -10,12 +10,20 @@ const target = isProduction ? 'browserslist' : 'web'
 const devtool = isProduction ? false : 'source-map'
 const mode = isProduction || 'development'
 
+class RunAfterCompile {
+	apply(compiler) {
+		compiler.hooks.done.tap('Copy images', () => {
+			fse.copySync('./src/images', './dist/images')
+		})
+	}
+}
+
 const cssConfig = {
 	test: /\.css$/i,
 	use: ['css-loader', 'postcss-loader'],
 }
 
-const pages = fse
+const htmlPlugins = fse
 	.readdirSync('./src')
 	.filter(file => {
 		return file.endsWith('.html')
@@ -32,6 +40,7 @@ const config = {
 	mode,
 	target,
 	devtool,
+	plugins: [new CleanWebpackPlugin(), new RunAfterCompile(), ...htmlPlugins],
 	module: {
 		rules: [
 			cssConfig,
@@ -50,7 +59,6 @@ const config = {
 			},
 		],
 	},
-	plugins: pages,
 }
 
 /*********** DEVELOPMENT  ************/
@@ -73,17 +81,9 @@ if (!isProduction) {
 		historyApiFallback: true,
 		host: '0.0.0.0',
 	}
-	config.devtool = 'source-map'
 }
 
 /*********** PRODUCTION  ************/
-class RunAfterCompile {
-	apply(compiler) {
-		compiler.hooks.done.tap('Copy images', () => {
-			fse.copySync('./src/images', './dist/images')
-		})
-	}
-}
 
 if (isProduction) {
 	cssConfig.use.unshift(MiniCssExtractPlugin.loader)
@@ -99,9 +99,7 @@ if (isProduction) {
 	}
 
 	config.plugins.push(
-		new CleanWebpackPlugin(),
-		new MiniCssExtractPlugin({ filename: 'style.[chunkhash].css' }),
-		new RunAfterCompile()
+		new MiniCssExtractPlugin({ filename: 'style.[chunkhash].css' })
 	)
 }
 
